@@ -49,18 +49,18 @@ public class Peli {
         Pelaaja esimerkkiPelaaja = new Pelaaja(esimerkkiKentta);
         PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(esimerkkiPelaaja);
         
-        ikkuna.setFocusable(true);
+        
         ikkuna.setPreferredSize(new Dimension(600, 600));
         ikkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
         ikkuna.pack();
-        ikkuna.setContentPane(esimerkkiPeliIkkuna);
+        
+        
+        ikkuna.add(esimerkkiPeliIkkuna);
         ikkuna.setVisible(true);       
-        System.out.println(esimerkkiPeliIkkuna.isFocusOwner());
         
         
-        esimerkkiPeliIkkuna.run();
+        
+        
         }
         
     

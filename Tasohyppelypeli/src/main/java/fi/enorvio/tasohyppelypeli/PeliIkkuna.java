@@ -9,16 +9,19 @@ import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.image.*;
 import java.awt.event.*;
+import javax.swing.Timer;
+
 
 /**
  *
  * @author tabby
  */
-public class PeliIkkuna extends JPanel implements KeyListener, Runnable {
+public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
     public BufferedImage kuva;
     private Pelaaja pelaaja;
     private Thread thread;
-    
+    public final static int INTERVAL = 10;
+    private Timer timer;
     
     
     public PeliIkkuna(Pelaaja pelaaja) {
@@ -26,36 +29,15 @@ public class PeliIkkuna extends JPanel implements KeyListener, Runnable {
         this.kuva = new BufferedImage(512, 256, BufferedImage.TYPE_INT_RGB);
         this.pelaaja = pelaaja;
         setFocusable(true);
+        this.addKeyListener(this);
         requestFocus();
-    }
-    
-    @Override public void addNotify() {
-        super.addNotify();
-        if(thread==null) {
-            thread = new Thread(this);
-            thread.start();
-        }
-        addKeyListener(this);
-    }
-    
-    @Override public void run() {
+        timer = new Timer(INTERVAL, this); 
+        timer.start();
         
         
-        while(true){
-            try {
-        Thread.sleep(30);                 
-        } catch(InterruptedException ex) {
-        Thread.currentThread().interrupt();
-        } 
-        this.pelaaja.liiku();
-        for (Vihollinen vihollinen : this.pelaaja.getKentta().getViholliset()) {
-            vihollinen.liiku();
-        }
-        this.pelaaja.setOikeaTrue();
-        this.pelaaja.hyppaa();
-        }
     }
     
+
     @Override public void keyTyped(KeyEvent key) {}
     
     @Override public void keyPressed(KeyEvent key) {
@@ -111,11 +93,21 @@ public class PeliIkkuna extends JPanel implements KeyListener, Runnable {
     
     
   } 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+                this.pelaaja.liiku();
+        for (Vihollinen vihollinen : this.pelaaja.getKentta().getViholliset()) {
+            vihollinen.liiku();
+        }
+        
+        }
+    }
     
 
   
  
  
 
-    
-}
+  
+
