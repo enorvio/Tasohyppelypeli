@@ -19,7 +19,6 @@ import javax.swing.Timer;
 public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
     public BufferedImage kuva;
     private Pelaaja pelaaja;
-    private Thread thread;
     public final static int INTERVAL = 10;
     private Timer timer;
     

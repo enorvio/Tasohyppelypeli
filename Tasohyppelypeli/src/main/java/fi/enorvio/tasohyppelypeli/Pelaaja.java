@@ -131,11 +131,11 @@ public class Pelaaja {
     }
     
     public void liiku(){
-            havaitseTormaysViholliseen(this.kentta.getViholliset());
-            if (this.y>238) {
-                this.elossa = false; //Pelaaja putosi kuiluun ja kuoli.
-            }        
-            else if (pelaajaOnIlmassa()){
+            //havaitseTormaysViholliseen(this.kentta.getViholliset());
+            //if (this.y>238) {
+            //    this.elossa = false; //Pelaaja putosi kuiluun ja kuoli.
+            //}        
+            if (pelaajaOnIlmassa()){
                 if (!this.oikea && !this.vasen){
                     if(this.hyppy==0){
                         this.y++;
