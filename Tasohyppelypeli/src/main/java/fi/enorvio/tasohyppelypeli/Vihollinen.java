@@ -9,83 +9,79 @@ package fi.enorvio.tasohyppelypeli;
  *
  * @author tabby
  */
-public class Vihollinen {
-    private int x;
-    private int y;
+public class Vihollinen extends Hahmo {
+
     private int reitinOsuus;
     private char[] suunnat;
     private int[] kaannospisteet;
 
-
     public Vihollinen(int x, int y, char[] suunnat, int[] kaannospisteet) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.reitinOsuus = 0;
         this.suunnat = suunnat;
         this.kaannospisteet = kaannospisteet;
     }
     
-    public int getX() {
-        return this.x;
+    public void liiku(Kentta kentta) {
+        if (this.suunnat[reitinOsuus] == 'd') {
+            if (this.getY() > this.kaannospisteet[reitinOsuus]) {
+                this.setAlas(false);
+                this.setYlos(true);
+                this.setOikea(false);
+                this.setVasen(false);
+            } else {
+                if (reitinOsuus < this.suunnat.length - 1) {
+                    this.reitinOsuus++;
+                } else {
+                    this.reitinOsuus = 0;
+                }
+
+            }
+        } else if (this.suunnat[reitinOsuus] == 'u') {
+            if (this.getY() < this.kaannospisteet[reitinOsuus]) {
+                this.setAlas(true);
+                this.setYlos(false);
+                this.setOikea(false);
+                this.setVasen(false);
+            } else {
+                if (reitinOsuus < this.suunnat.length - 1) {
+                    this.reitinOsuus++;
+                } else {
+                    this.reitinOsuus = 0;
+                }
+
+            }
+        } else if (this.suunnat[reitinOsuus] == 'r') {
+            if (this.getX() < this.kaannospisteet[reitinOsuus]) {
+                this.setAlas(false);
+                this.setYlos(false);
+                this.setOikea(true);
+                this.setVasen(false);
+            } else {
+                if (reitinOsuus < this.suunnat.length - 1) {
+                    this.reitinOsuus++;
+                } else {
+                    this.reitinOsuus = 0;
+                }
+
+            }
+        } else if (this.suunnat[reitinOsuus] == 'l') {
+            if (this.getX() > this.kaannospisteet[reitinOsuus]) {
+                this.setAlas(false);
+                this.setYlos(false);
+                this.setOikea(false);
+                this.setVasen(true);
+            } else {
+                if (reitinOsuus < this.suunnat.length - 1) {
+                    this.reitinOsuus++;
+                } else {
+                    this.reitinOsuus = 0;
+                }
+
+            }
+        }
+        super.liiku(kentta);
+        
     }
-    
-    public int getY() {
-        return this.y;
-    }
-    
-    public void liiku(){
-        
-        if(this.suunnat[reitinOsuus]=='d'){
-            if(this.y>this.kaannospisteet[reitinOsuus]){
-                this.y--;
-            } else {
-                if (reitinOsuus<this.suunnat.length-1){
-                    this.reitinOsuus++;
-                } else {
-                    this.reitinOsuus = 0;
-                }
-                
-            }
-        }
-        if (this.suunnat[reitinOsuus]=='u'){
-            if(this.y<this.kaannospisteet[reitinOsuus]){
-                this.y++;
-            } else {
-                if (reitinOsuus<this.suunnat.length-1){
-                    this.reitinOsuus++;
-                } else {
-                    this.reitinOsuus = 0;
-                }
-                
-            }
-        }
-        
-        if (this.suunnat[reitinOsuus]=='r'){
-            if(this.x<this.kaannospisteet[reitinOsuus]){
-                this.x++;
-            } else {
-                if (reitinOsuus<this.suunnat.length-1){
-                    this.reitinOsuus++;
-                } else {
-                    this.reitinOsuus = 0;
-                }
-                
-            }
-        }
-        
-        if (this.suunnat[reitinOsuus]=='l'){
-            if(this.x>this.kaannospisteet[reitinOsuus]){
-                this.x--;
-            } else {
-                if (reitinOsuus<this.suunnat.length-1){
-                    this.reitinOsuus++;
-                } else {
-                    this.reitinOsuus = 0;
-                }
-                
-            }
-        }
-        
-    }
-    
+
 }

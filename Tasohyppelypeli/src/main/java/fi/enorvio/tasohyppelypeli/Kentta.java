@@ -36,13 +36,13 @@ public class Kentta {
         this.viholliset = viholliset;
     }
     
-    public Vihollinen[] getViholliset(){
+    public Vihollinen[] getViholliset() {
         return this.viholliset;
     }
     
     
     
-    public int getLeveys(){
+    public int getLeveys() {
         return this.leveys;
     }
    
@@ -50,18 +50,18 @@ public class Kentta {
         return this.korkeus;
     }
     
-    public int getLaatta(int x, int y){
+    public int getLaatta(int x, int y) {
         return this.laatat[y][x];
     }
     
-    public void setLaatta(int x, int y, int arvo){
+    public void setLaatta(int x, int y, int arvo) {
         this.laatat[y][x] = arvo;
     }
     
-    public boolean kuuluukoPikseliEsteeseen(int x, int y){
-        int sarake = x/16;
-        int rivi = y/16;
-        if (this.laatat[rivi][sarake]==1) {
+    public boolean kuuluukoPikseliEsteeseen(int x, int y) {
+        int sarake = x / 16;
+        int rivi = y / 16;
+        if (this.laatat[rivi][sarake] == 1) {
             return true;
         }
         return false;
