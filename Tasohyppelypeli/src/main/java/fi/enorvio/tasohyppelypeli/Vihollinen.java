@@ -25,11 +25,9 @@ public class Vihollinen extends Hahmo {
     public void liiku(Kentta kentta) {
         if (this.suunnat[reitinOsuus] == 'd') {
             if (this.getY() > this.kaannospisteet[reitinOsuus]) {
-                this.setAlas(false);
                 this.setYlos(true);
-                this.setOikea(false);
-                this.setVasen(false);
             } else {
+                this.setYlos(false);
                 if (reitinOsuus < this.suunnat.length - 1) {
                     this.reitinOsuus++;
                 } else {
@@ -40,10 +38,8 @@ public class Vihollinen extends Hahmo {
         } else if (this.suunnat[reitinOsuus] == 'u') {
             if (this.getY() < this.kaannospisteet[reitinOsuus]) {
                 this.setAlas(true);
-                this.setYlos(false);
-                this.setOikea(false);
-                this.setVasen(false);
             } else {
+                this.setAlas(false);
                 if (reitinOsuus < this.suunnat.length - 1) {
                     this.reitinOsuus++;
                 } else {
@@ -53,11 +49,9 @@ public class Vihollinen extends Hahmo {
             }
         } else if (this.suunnat[reitinOsuus] == 'r') {
             if (this.getX() < this.kaannospisteet[reitinOsuus]) {
-                this.setAlas(false);
-                this.setYlos(false);
-                this.setOikea(true);
-                this.setVasen(false);
+                this.setOikea(true);              
             } else {
+                this.setOikea(false);
                 if (reitinOsuus < this.suunnat.length - 1) {
                     this.reitinOsuus++;
                 } else {
@@ -67,11 +61,9 @@ public class Vihollinen extends Hahmo {
             }
         } else if (this.suunnat[reitinOsuus] == 'l') {
             if (this.getX() > this.kaannospisteet[reitinOsuus]) {
-                this.setAlas(false);
-                this.setYlos(false);
-                this.setOikea(false);
                 this.setVasen(true);
             } else {
+                this.setVasen(false);
                 if (reitinOsuus < this.suunnat.length - 1) {
                     this.reitinOsuus++;
                 } else {

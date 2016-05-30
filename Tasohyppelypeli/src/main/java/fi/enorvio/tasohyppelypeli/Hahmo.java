@@ -34,8 +34,13 @@ public class Hahmo {
         return this.onElossa;
     }
     
+    public void ela(){
+        this.onElossa = true;
+    }
+    
     public void kuole() {
         this.onElossa = false;
+        System.out.println("kuolit");
     }
     
     public int getX() {
@@ -86,14 +91,6 @@ public class Hahmo {
         this.alas = alas;
     }
     
-    public void liikuPystysuunnassa(int matka) {
-        this.y += matka;
-    }
-    
-    public void liikuVaakasuunnassa(int matka) {
-        this.x += matka;
-    }
-    
     public boolean pelaajaOnIlmassa(Kentta kentta) {
         if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y + 16)) {
             return false;
@@ -108,11 +105,17 @@ public class Hahmo {
         if (kentta.kuuluukoPikseliEsteeseen(this.x + 16, this.y)) {
             return true;
         }
+        if (kentta.kuuluukoPikseliEsteeseen(this.x + 16, this.y + 15)) {
+            return true;
+        }
         return false;
     }
 
     public boolean vasemmallaOnEste(Kentta kentta) {
         if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y)) {
+            return true;
+        }
+        if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y + 15)) {
             return true;
         }
         return false;
@@ -163,6 +166,15 @@ public class Hahmo {
         } else if (this.ylos) {
             this.liikuYlos(kentta);
         }
+    }
+    
+    public boolean kuuluukoPikseliHahmoon(int a, int b) {
+        if (a >= this.x && b>= this.y) {
+            if (a-this.x < 16 && b-this.y < 16) {
+                return true;
+            }
+        }
+        return false;
     }
     
 }
