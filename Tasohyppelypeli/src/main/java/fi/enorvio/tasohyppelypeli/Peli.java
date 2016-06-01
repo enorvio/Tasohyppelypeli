@@ -13,7 +13,8 @@ import javax.swing.JFrame;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
-
+import fi.enorvio.tasohyppelypeli.kayttoliittyma.*;
+import javax.swing.SwingUtilities;
 
 public class Peli {
     
@@ -25,8 +26,7 @@ public class Peli {
         String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
         Pelaaja esimerkkiPelaaja1 = new Pelaaja(kentanNimet);
         PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(esimerkkiPelaaja1);
-        
-        
+        System.out.println("uusi peli");
         JFrame ikkuna = new JFrame("Peli");
         GridLayout asettelija = new GridLayout(2, 1);
         ikkuna.setLayout(asettelija);
@@ -37,6 +37,9 @@ public class Peli {
         ikkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ikkuna.pack();
         ikkuna.setVisible(true);
+        
+        
+       
     }
 
 }

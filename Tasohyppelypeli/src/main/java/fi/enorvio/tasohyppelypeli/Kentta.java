@@ -20,6 +20,7 @@ public class Kentta {
     private int[][] laatat; 
     private ArrayList<Vihollinen> viholliset;
     private int pisteet;
+    private Dictionary<int[], int[]> teleportit;
     
     public Kentta(int[][] laatat) {
         this.leveys = 32;
@@ -124,6 +125,11 @@ public class Kentta {
             }
         }
         return false;
+    }
+    
+    public int[] hahmoKoskettaaTeleporttia(int x, int y) {
+        int[] laatta = {x / 16, y / 16};
+        return this.teleportit.get(laatta);       
     }
     
 }

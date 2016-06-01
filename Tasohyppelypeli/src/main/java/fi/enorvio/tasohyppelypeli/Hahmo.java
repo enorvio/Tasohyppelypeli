@@ -132,7 +132,7 @@ public class Hahmo {
     }
     
     public void liikuVasemmalle(Kentta kentta) {
-        if (!this.vasemmallaOnEste(kentta) || !this.tormaaEsteisiin) {
+        if ((!this.vasemmallaOnEste(kentta) || !this.tormaaEsteisiin) && this.x > 0) {
             this.x--;
         }
     }
@@ -150,7 +150,7 @@ public class Hahmo {
     }
     
     public void liikuYlos(Kentta kentta) {
-        if (!this.ylhaallaOnEste(kentta) || !this.tormaaEsteisiin) {
+        if ((!this.ylhaallaOnEste(kentta) || !this.tormaaEsteisiin) && this.y > 0) {
             this.y--;
         }
     }

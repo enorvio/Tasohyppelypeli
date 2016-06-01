@@ -19,7 +19,7 @@ public class Pelaaja extends Hahmo {
     private String[] kenttienTiedostonimet;
     
     public Pelaaja(Kentta kentta) {
-        super(0, 0);
+        super(1, 1);
         this.hyppy = 0;
         this.kentta = kentta;
         super.setTormaaEsteisiin(true);
@@ -32,7 +32,7 @@ public class Pelaaja extends Hahmo {
     }
     
     public Pelaaja(String[] kenttienTiedostonimet) {
-        super(0, 0);
+        super(1, 1);
         super.setTormaaEsteisiin(true);
         this.hyppy = 0;
         this.kenttienTiedostonimet = kenttienTiedostonimet;    
@@ -65,11 +65,13 @@ public class Pelaaja extends Hahmo {
         }
     }
     
+    public int getHyppy() {
+        return this.hyppy;
+    }
+    
     public void kuole() {
         super.kuole();
         this.elamat--;
-        System.out.println(this.pisteet);
-        System.out.println(this.elamat);
         if (this.elamat > 0) {
             this.resetoiKentta();
             ela();
@@ -77,8 +79,8 @@ public class Pelaaja extends Hahmo {
     }
     
     public void resetoiKentta(){
-        super.setX(0);
-        super.setY(0);
+        super.setX(1);
+        super.setY(1);
         this.setKentta(new Kentta(this.kenttienTiedostonimet[kentanNumero]));
     }
     

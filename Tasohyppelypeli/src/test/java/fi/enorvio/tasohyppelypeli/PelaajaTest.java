@@ -54,7 +54,7 @@ public class PelaajaTest {
 
     }
     
-     @Test
+    @Test
     public void testOikeallaOnEste() {
         testiPelaaja.setX(0);
         testiPelaaja.setY(224);
@@ -134,6 +134,13 @@ public class PelaajaTest {
         testiKentta.setLaatta(2, 6, 0);
         testiPelaaja.setAlas(false);
     }
-
+    
+    @Test
+    public void PelaajaEiHyppaaIlmassa() {
+        testiPelaaja.setX(1);
+        testiPelaaja.setY(1);
+        testiPelaaja.hyppaa();
+        assertEquals(testiPelaaja.getHyppy(), 0);
+    }
    
 }

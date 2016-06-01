@@ -96,7 +96,7 @@ public class KenttaTest {
     @Test
     public void testaaKuuluukoYlaReunanPikseliEsteeseen() {
         System.out.println("Testataan että laattojen yläreunassa olevista pikseleistä havaitaan kuuluvatko ne esteeseen.");
-        for (int i = 0; i < 16; i++) {
+        for (int i = 1; i < 16; i++) {
             if (testiKentta.getLaatta(6, i) == 0) {
                 assertFalse(testiKentta.kuuluukoPikseliEsteeseen(98, 16 * i));
             } else {
@@ -118,5 +118,6 @@ public class KenttaTest {
 
         }
     }
-
+    
+   
 }
