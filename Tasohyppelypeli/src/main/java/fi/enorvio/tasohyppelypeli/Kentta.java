@@ -13,15 +13,16 @@ import java.util.*;
 import java.io.*;
 
 public class Kentta {
+
     private int leveys;
     private int korkeus;
     private int laatanLeveys;
     private int laatanKorkeus;
-    private int[][] laatat; 
+    private int[][] laatat;
     private ArrayList<Vihollinen> viholliset;
     private int pisteet;
     private Dictionary<int[], int[]> teleportit;
-    
+
     public Kentta(int[][] laatat) {
         this.leveys = 32;
         this.korkeus = 16;
@@ -31,7 +32,7 @@ public class Kentta {
         this.pisteet = 0;
         this.viholliset = new ArrayList<Vihollinen>();
     }
-    
+
     public Kentta(String tiedostonnimi) {
         this.leveys = 32;
         this.korkeus = 16;
@@ -43,10 +44,10 @@ public class Kentta {
         try {
             File tiedosto = new File(tiedostonnimi);
             Scanner lukija = new Scanner(tiedosto);
-            for (int i=0; i<16; i++) {
+            for (int i = 0; i < 16; i++) {
                 int j = 0;
                 String rivi = lukija.nextLine();
-                String[] osat = rivi.split(","); 
+                String[] osat = rivi.split(",");
                 for (String osa : osat) {
                     if (osa.equals("1")) {
                         this.laatat[i][j] = 1;
@@ -55,8 +56,8 @@ public class Kentta {
                     } else if (osa.equals("2")) {
                         this.laatat[i][j] = 2;
                     }
-                j++;
-            }
+                    j++;
+                }
             }
             while (lukija.hasNextLine()) {
                 String rivi = lukija.nextLine();
@@ -70,50 +71,49 @@ public class Kentta {
                 }
                 String[] kaannospisteet = osat[3].split(":");
                 int[] kaannospisteet1 = new int[kaannospisteet.length];
-                    for (int i = 0; i < kaannospisteet.length; i++) {
-                        kaannospisteet1[i] = Integer.parseInt(kaannospisteet[i]);
-                    }
+                for (int i = 0; i < kaannospisteet.length; i++) {
+                    kaannospisteet1[i] = Integer.parseInt(kaannospisteet[i]);
+                }
                 this.viholliset.add(new Vihollinen(x, y, suunnat1, kaannospisteet1));
             }
             lukija.close();
-  } catch (Exception e) {
-      System.out.println("Tiedostoa ei loydy");
-  }
+        } catch (Exception e) {
+            System.out.println("Tiedostoa ei loydy");
+        }
     }
-    
-    
+
     public ArrayList<Vihollinen> getViholliset() {
         return this.viholliset;
     }
-    
+
     public int getPisteet() {
         return this.pisteet;
     }
-    
+
     public int getLeveys() {
         return this.leveys;
     }
-   
+
     public int getKorkeus() {
         return this.korkeus;
     }
-    
+
     public int getLaatta(int x, int y) {
         return this.laatat[y][x];
     }
-    
+
     public void setLaatta(int x, int y, int arvo) {
         this.laatat[y][x] = arvo;
     }
-    
+
     public boolean kuuluukoPikseliEsteeseen(int x, int y) {
         int sarake = x / 16;
         int rivi = y / 16;
         if (this.laatat[rivi][sarake] == 1) {
             return true;
         } else if (this.laatat[rivi][sarake] == 2) {
-            if (Math.abs(x - (16 * sarake) + 7) < 10) {
-                if ((Math.abs(y - (16 * rivi) + 7) < 10)) {
+            if (Math.abs(x - (16 * sarake + 6)) < 10) {
+                if ((Math.abs(y - (16 * rivi + 6)) < 10)) {
                     this.laatat[rivi][sarake] = 0;
                     this.pisteet++;
                 }
@@ -126,11 +126,10 @@ public class Kentta {
         }
         return false;
     }
-    
+
     public int[] hahmoKoskettaaTeleporttia(int x, int y) {
         int[] laatta = {x / 16, y / 16};
-        return this.teleportit.get(laatta);       
+        return this.teleportit.get(laatta);
     }
-    
-}
 
+}

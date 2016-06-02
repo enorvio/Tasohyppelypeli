@@ -13,7 +13,7 @@ import javax.swing.Timer;
 import javax.swing.JLabel;
 
 public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
-    
+
     public JLabel statuspaneeli;
     public BufferedImage kuva;
     private Pelaaja pelaaja;
@@ -42,13 +42,11 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
         int code = key.getKeyCode();
 
         if (code == KeyEvent.VK_LEFT) {
-            this.pelaaja.setVasen(true);
-            this.pelaaja.setOikea(false);
+            this.pelaaja.setDx(-1);
 
         }
         if (code == KeyEvent.VK_RIGHT) {
-            this.pelaaja.setOikea(true);
-            this.pelaaja.setVasen(false);
+            this.pelaaja.setDx(1);
         }
         if (code == KeyEvent.VK_SPACE) {
             this.pelaaja.hyppaa();
@@ -61,10 +59,11 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
         int code = key.getKeyCode();
 
         if (code == KeyEvent.VK_LEFT) {
-            this.pelaaja.setVasen(false);
+            this.pelaaja.setDx(0);
+
         }
         if (code == KeyEvent.VK_RIGHT) {
-            this.pelaaja.setOikea(false);
+            this.pelaaja.setDx(0);
         }
     }
 
@@ -106,16 +105,15 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (this.pelaaja.onElossa()) {
-            this.pelaaja.liiku();
+            this.pelaaja.liiku1();
             for (Vihollinen vihollinen : this.pelaaja.getKentta().getViholliset()) {
                 vihollinen.liiku(this.pelaaja.getKentta());
             }
             this.statuspaneeli.setText("Lives: " + this.pelaaja.getElamat() + "Points: " + (this.pelaaja.getPisteet() + this.pelaaja.getKentta().getPisteet()));
-        } 
-        
+        }
 
     }
-    
+
     public JLabel getStatuspaneeli() {
         return this.statuspaneeli;
     }

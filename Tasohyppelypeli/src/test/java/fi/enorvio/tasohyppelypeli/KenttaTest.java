@@ -41,10 +41,10 @@ public class KenttaTest {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -117,6 +117,47 @@ public class KenttaTest {
             }
 
         }
+    }
+    
+    @Test
+    public void testaaEttaVihollisetLuetaanTiedostostaOikein() {
+        System.out.println("Testataan että kaikki viholliset saadaan tiedostosta oikein.");
+        Kentta testiKentta2 = new Kentta("src/main/resources/esimerkkiTaso2.txt");
+        assertEquals(testiKentta2.getViholliset().get(0).toString(), "Vihollinen pisteessa x = 80, y = 80, on nyt reitinosuudella 0, suunnat: drul, kaannospisteet 80 250 0 80");   
+        assertEquals(testiKentta2.getViholliset().get(1).toString(), "Vihollinen pisteessa x = 30, y = 30, on nyt reitinosuudella 0, suunnat: drul, kaannospisteet 30 90 4 30");
+        assertEquals(testiKentta2.getViholliset().size(), 2);
+        
+    }
+    
+    @Test
+    public void testaaEttaKaikkiTiedostonRivitLuetaan() {
+        System.out.println("Testataan että kentän kaikki laattarivit luetaan.");
+        Kentta testiKentta2 = new Kentta("src/main/resources/esimerkkiTaso2.txt");
+        assertEquals(testiKentta2.getLaatta(15, 15), 1);
+        
+    }
+    
+    @Test
+    public void testaaEttaPisteetEivatEstaLiikkumista() {
+        System.out.println("Testataan että pisteitä sisältäviä ruutuja ei tulkita esteeksi.");
+        for (int i = 0; i < 32; i++) {
+            testiKentta.setLaatta(i, 5, 2);
+            assertFalse(testiKentta.kuuluukoPikseliEsteeseen(i * 16, 80));
+            assertFalse(testiKentta.kuuluukoPikseliEsteeseen (i * 16 + 15, 80));
+            assertFalse(testiKentta.kuuluukoPikseliEsteeseen (i * 16 + 8, 80));
+        } 
+        
+    }
+    
+    @Test
+    public void testataanPisteidenPoimimista() {
+        System.out.println("");
+        for (int i = 0; i < 32; i++) {
+            testiKentta.setLaatta(i, 5, 2);
+            assertFalse(testiKentta.kuuluukoPikseliEsteeseen(i * 16, 80));
+            assertEquals(testiKentta.getLaatta(i, 5), 0);            
+        } 
+        assertEquals(testiKentta.getPisteet(), 32);
     }
     
    

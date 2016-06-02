@@ -10,87 +10,77 @@ package fi.enorvio.tasohyppelypeli;
  * @author enorvio
  */
 public class Hahmo {
+
     private int x;
     private int y;
-    private boolean vasen;
-    private boolean oikea;
-    private boolean ylos;
-    private boolean alas;
     private boolean onElossa;
     private boolean tormaaEsteisiin;
-    
+    private int dx;
+    private int dy;
+
     public Hahmo(int x, int y) {
         this.x = x;
         this.y = y;
+        this.dx = 0;
+        this.dy = 0;
         this.onElossa = true;
         this.tormaaEsteisiin = false;
     }
-    
+
     public void setTormaaEsteisiin(boolean tormaaEsteisiin) {
         this.tormaaEsteisiin = tormaaEsteisiin;
     }
-    
+
     public boolean onElossa() {
         return this.onElossa;
     }
-    
-    public void ela(){
+
+    public void ela() {
         this.onElossa = true;
     }
-    
+
     public void kuole() {
         this.onElossa = false;
         System.out.println("kuolit");
     }
-    
+
     public int getX() {
         return this.x;
     }
-    
+
     public int getY() {
         return this.y;
     }
-    
+
     public void setX(int uusiX) {
         this.x = uusiX;
     }
-    
+
     public void setY(int uusiY) {
         this.y = uusiY;
     }
-    
-    public boolean getVasen() {
-        return this.vasen;
+
+    public void pysahdy() {
+        this.dx = 0;
+        this.dy = 0;
     }
-    
-    public void setVasen(boolean vasen) {
-        this.vasen = vasen;
+
+    public int getDx() {
+        return this.dx;
     }
-    
-    public boolean getOikea() {
-        return this.oikea;
+
+    public int getDy() {
+        return this.dy;
     }
-    
-    public void setOikea(boolean oikea) {
-        this.oikea = oikea;
+
+    public void setDx(int uusiDx) {
+        this.dx = uusiDx;
     }
-    
-    public boolean getYlos(){
-        return this.ylos;
+
+    public void setDy(int uusiDy) {
+        this.dy = uusiDy;
     }
-    
-    public void setYlos(boolean ylos){
-        this.ylos = ylos;
-    }
-    
-    public boolean getAlas(){
-        return this.alas;
-    }
-    
-    public void setAlas(boolean alas){
-        this.alas = alas;
-    }
-    
+
     public boolean pelaajaOnIlmassa(Kentta kentta) {
         if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y + 16)) {
             return false;
@@ -99,26 +89,6 @@ public class Hahmo {
             return false;
         }
         return true;
-    }
-
-    public boolean oikeallaOnEste(Kentta kentta) {
-        if (kentta.kuuluukoPikseliEsteeseen(this.x + 16, this.y)) {
-            return true;
-        }
-        if (kentta.kuuluukoPikseliEsteeseen(this.x + 16, this.y + 15)) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean vasemmallaOnEste(Kentta kentta) {
-        if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y)) {
-            return true;
-        }
-        if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y + 15)) {
-            return true;
-        }
-        return false;
     }
 
     public boolean ylhaallaOnEste(Kentta kentta) {
@@ -130,51 +100,51 @@ public class Hahmo {
         }
         return false;
     }
-    
-    public void liikuVasemmalle(Kentta kentta) {
-        if ((!this.vasemmallaOnEste(kentta) || !this.tormaaEsteisiin) && this.x > 0) {
-            this.x--;
-        }
-    }
-    
-    public void liikuOikealle(Kentta kentta) {
-        if (!this.oikeallaOnEste(kentta) || !this.tormaaEsteisiin) {
-            this.x++;
-        }
-    }
-    
-    public void liikuAlas(Kentta kentta) {
-        if (pelaajaOnIlmassa(kentta) || !this.tormaaEsteisiin) {
-            this.y++;
-        }
-    }
-    
-    public void liikuYlos(Kentta kentta) {
-        if ((!this.ylhaallaOnEste(kentta) || !this.tormaaEsteisiin) && this.y > 0) {
-            this.y--;
-        }
-    }
-    
+
     public void liiku(Kentta kentta) {
-        if (this.vasen) {
-            this.liikuVasemmalle(kentta);
-        } else if (this.oikea) {
-            this.liikuOikealle(kentta);
+        int uusiX = this.x + this.dx;
+        int uusiY = this.y + this.dy;
+        if (!this.tormaaEsteisiin) {
+            this.x = uusiX;
+            this.y = uusiY;
+        } else if (voiLiikkuaPisteeseen(kentta, uusiX, uusiY)) {
+            this.x = uusiX;
+            this.y = uusiY;
+        } else if (voiLiikkuaPisteeseen(kentta, this.x, uusiY)) {
+            this.y = uusiY;
+        } else if (voiLiikkuaPisteeseen(kentta, uusiX, this.y)) {
+            this.x = uusiX;
         }
-        if (this.alas) {
-            this.liikuAlas(kentta);
-        } else if (this.ylos) {
-            this.liikuYlos(kentta);
-        }
+
     }
-    
+
+    public boolean voiLiikkuaPisteeseen(Kentta kentta, int a, int b) {
+        if ((a < 0) || (b < 0) || (a > 496) || (b > 240)) {
+            return false;
+        }
+        if (kentta.kuuluukoPikseliEsteeseen(a, b)) {
+            return false;
+        }
+        if (kentta.kuuluukoPikseliEsteeseen(a, b + 15)) {
+            return false;
+        }
+        if (kentta.kuuluukoPikseliEsteeseen(a + 15, b + 15)) {
+            return false;
+        }
+        if (kentta.kuuluukoPikseliEsteeseen(a + 15, b)) {
+            return false;
+        }
+        return true;
+
+    }
+
     public boolean kuuluukoPikseliHahmoon(int a, int b) {
-        if (a >= this.x && b>= this.y) {
-            if (a-this.x < 16 && b-this.y < 16) {
+        if (a >= this.x && b >= this.y) {
+            if (a - this.x < 16 && b - this.y < 16) {
                 return true;
             }
         }
         return false;
     }
-    
+
 }

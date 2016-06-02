@@ -23,35 +23,32 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+public class Kayttoliittyma implements Runnable {
 
-public class Kayttoliittyma implements Runnable{
-    
     private JFrame ikkuna;
     private JLabel statuspaneeli;
-    private GridLayout asettelija; 
+    private GridLayout asettelija;
     private JButton uusiPeli;
     private JButton lataaPeli;
     private JButton lopeta;
     private JButton korkeimmatPisteet;
-    
-    
+
     public Kayttoliittyma() {
-        
+
     }
-    
-    
-    
-    @Override public void run() {
-        
+
+    @Override
+    public void run() {
+
         ikkuna.setPreferredSize(new Dimension(300, 200));
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
+
         luoKomponentit(ikkuna.getContentPane());
 
         ikkuna.pack();
         ikkuna.setVisible(true);
     }
-    
+
     private void luoKomponentit(Container container) {
         GridLayout asettelija = new GridLayout(3, 1);
         container.setLayout(asettelija);
@@ -72,9 +69,7 @@ public class Kayttoliittyma implements Runnable{
         nappi2.addActionListener(kuuntelija);
         nappi3.addActionListener(kuuntelija);
         nappi4.addActionListener(kuuntelija);
-        
+
     }
-    
-    
-    
+
 }

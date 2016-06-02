@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\Hahmo.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\Kayttoliittyma.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\ValikonKuuntelija.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\Kentta.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\Pelaaja.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\Peli.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\PeliIkkuna.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\Vihollinen.java">
+</file>
+</checkstyle>

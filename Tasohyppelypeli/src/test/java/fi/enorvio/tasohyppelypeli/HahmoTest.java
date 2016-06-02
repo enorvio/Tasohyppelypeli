@@ -13,14 +13,14 @@ import static org.junit.Assert.*;
  * @author tabby
  */
 public class HahmoTest {
-    
+
     int[][] laatat = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -32,127 +32,140 @@ public class HahmoTest {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
     Kentta testiKentta = new Kentta(laatat);
     Hahmo testiHahmo = new Hahmo(0, 0);
-    
+
     public HahmoTest() {
-        
+
     }
 
-    /**
-     * Test of setTormaaEsteisiin method, of class Hahmo.
-     */
-    @Test
-    public void testaaEttaEsteidenLapiMenoToimiiOikein() {
-        testiHahmo.setTormaaEsteisiin(false);
-        
-    }
-
-    
-    
- 
-    @Test
-    public void testaaEttaHahmoPysahtyyYlareunaan() {
-        testiHahmo.setTormaaEsteisiin(true);
-        testiHahmo.setX(10);
-        testiHahmo.setY(10);
-        testiHahmo.setYlos(true);
-        while(testiHahmo.getY()>=1) {
-            testiHahmo.liiku(testiKentta);
-        }
-        assertEquals(testiHahmo.getY(), 0);
-    }
-
-    /**
-     * Test of setAlas method, of class Hahmo.
-     */
-    @Test
-    public void testSetAlas() {
-    }
-
-    /**
-     * Test of pelaajaOnIlmassa method, of class Hahmo.
-     */
-    @Test
-    public void testPelaajaOnIlmassa() {
-        testiHahmo.setX(48);
-        testiHahmo.setTormaaEsteisiin(true);
-        for (int i = 15; i > 2; i--) {
-            testiKentta.setLaatta(3, i, 1);
-            testiHahmo.setAlas(true);
-            while (testiHahmo.pelaajaOnIlmassa(testiKentta)) {
-                testiHahmo.liiku(testiKentta);
-            }
-            assertEquals(testiHahmo.getX(), 48);
-            assertEquals(testiHahmo.getY() + 16, i * 16);
-            testiHahmo.setY(0);
-            testiKentta.setLaatta(3, i, 0);
-        }
-        testiHahmo.setAlas(false);
-        
-    }
-        
-    
-
-    /**
-     * Test of oikeallaOnEste method, of class Hahmo.
-     */
-    @Test
-    public void testOikeallaOnEste() {
-    }
-
-    /**
-     * Test of vasemmallaOnEste method, of class Hahmo.
-     */
-    @Test
-    public void testVasemmallaOnEste() {
-    }
-
-    /**
-     * Test of ylhaallaOnEste method, of class Hahmo.
-     */
-    @Test
-    public void testYlhaallaOnEste() {
-    }
-
-    /**
-     * Test of liikuVasemmalle method, of class Hahmo.
-     */
-    @Test
-    public void testLiikuVasemmalle() {
-    }
-
-    /**
-     * Test of liikuOikealle method, of class Hahmo.
-     */
-    @Test
-    public void testLiikuOikealle() {
-    }
-
-    /**
-     * Test of liikuAlas method, of class Hahmo.
-     */
-    @Test
-    public void testLiikuAlas() {
-    }
-
-    /**
-     * Test of liikuYlos method, of class Hahmo.
-     */
-    @Test
-    public void testLiikuYlos() {
-    }
-
-    /**
-     * Test of liiku method, of class Hahmo.
-     */
-    @Test
-    public void testLiiku() {
-    }
-
-    /**
-     * Test of kuuluukoPikseliHahmoon method, of class Hahmo.
-     */
     @Test
     public void testKuuluukoPikseliHahmoon() {
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; i < 16; i++) {
+                assertTrue(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + i, testiHahmo.getY() + j));
+            }
+        }
+        for (int i = 0; i < 16; i++) {
+            assertFalse(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + i, testiHahmo.getY() + 16));
+            assertFalse(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + 16, testiHahmo.getY() + i));
+        }
     }
-    
+
+    @Test
+    public void testaaEttaPysahtyyAlareunaan() {
+        System.out.println("Testataan ettei hahmo voi liikkua yläreunan ulkopuolelle.");
+        assertFalse(testiHahmo.voiLiikkuaPisteeseen(testiKentta, 8, -1));
+    }
+
+    @Test
+    public void testaaEttaPysahtyyVasempaanReunaan() {
+        System.out.println("Testataan ettei hahmo voi liikkua vasemman reunan ulkopuolelle.");
+        assertFalse(testiHahmo.voiLiikkuaPisteeseen(testiKentta, -1, 12));
+    }
+
+    @Test
+    public void testaaEttaPysahtyyOikeaanReunaan() {
+        System.out.println("Testataan ettei hahmo voi liikkua oikean reunan ulkopuolelle.");
+        assertFalse(testiHahmo.voiLiikkuaPisteeseen(testiKentta, 497, 0));
+    }
+
+    @Test
+    public void testVoiLiikkuaPisteeseen() {
+        System.out.println("Testataan ettei hahmo voi liikkua laatan sisään.");
+        testiHahmo.setTormaaEsteisiin(true);
+        testiKentta.setLaatta(0, 0, 1);
+        for (int x = 1; x < 30; x++) {
+            for (int y = 1; y < 30; y++) {
+                if (x < 16 && y < 16) {
+                    assertFalse(testiHahmo.voiLiikkuaPisteeseen(testiKentta, x, y));
+                } else {
+                    assertTrue(testiHahmo.voiLiikkuaPisteeseen(testiKentta, x, y));
+                }
+            }
+        }
+        testiKentta.setLaatta(0, 0, 0);
+    }
+
+    @Test
+    public void testaaEttaHahmoVoiMennaVasemmanReunanJaLaatanValiseenRakoon() {
+        System.out.println("Testataan että hahmo voi liikkua ahtaimmassa mahdollisessa raossa vasemman reunan vieressä.");
+        testiHahmo.setTormaaEsteisiin(true);
+        testiHahmo.setX(0);
+        testiHahmo.setY(0);
+        for (int i = 0; i < 14; i++) {
+            testiKentta.setLaatta(1, i, 1);
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(testiKentta, 0, i * 16));
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(testiKentta, 0, i * 16 + 3));
+        }
+        testiHahmo.setDy(1);
+        for (int i = 0; i < 500; i++) {
+            testiHahmo.liiku(testiKentta);
+        }
+        assertEquals(testiHahmo.getY(), 224);
+        testiHahmo.setDy(0);
+        for (int i = 0; i < 14; i++) {
+            testiKentta.setLaatta(1, i, 0);
+        }
+    }
+
+    @Test
+    public void testaaEttaHahmoVoiMennaYlaReunanJaLaatanValiseenRakoon() {
+        System.out.println("Testataan että hahmo voi liikkua ahtaimmassa mahdollisessa raossa yläreunan vieressä.");
+        testiHahmo.setTormaaEsteisiin(true);
+        testiHahmo.setX(0);
+        testiHahmo.setY(0);
+        for (int i = 0; i < 29; i++) {
+            testiKentta.setLaatta(i, 1, 1);
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(testiKentta, i * 16, 0));
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(testiKentta, i * 16 + 3, 0));
+        }
+        testiHahmo.setDx(1);
+        for (int i = 0; i < 500; i++) {
+            testiHahmo.liiku(testiKentta);
+        }
+        assertEquals(testiHahmo.getX(), 496);
+        testiHahmo.setDx(0);
+        for (int i = 0; i < 29; i++) {
+            testiKentta.setLaatta(i, 1, 0);
+        }
+    }
+
+    @Test
+    public void testaaEttaHahmoVoiMennaKahdenLaatanValiseenRakoon() {
+        System.out.println("Testataan että hahmo voi liikkua ahtaimmassa mahdollisessa kahden laatan välisessä raossa.");
+        testiHahmo.setTormaaEsteisiin(true);
+        testiHahmo.setX(16);
+        testiHahmo.setY(0);
+        testiHahmo.setDy(1);
+        for (int i = 1; i < 13; i++) {
+            testiKentta.setLaatta(0, i, 1);
+            testiKentta.setLaatta(2, i, 1);
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(testiKentta, 16, i));
+        }
+        for (int i = 0; i < 500; i++) {
+            testiHahmo.liiku(testiKentta);
+
+        }
+        assertEquals(testiHahmo.getY(), 224);
+        for (int i = 1; i < 13; i++) {
+            testiKentta.setLaatta(0, i, 0);
+            testiKentta.setLaatta(2, i, 0);
+        }
+        testiHahmo.setDy(0);
+    }
+
+    @Test
+    public void TestaaVinottaistaLiiketta() {
+        testiHahmo.setX(0);
+        testiHahmo.setY(0);
+        testiHahmo.setDx(1);
+        testiHahmo.setDy(1);
+        for (int i = 0; i < 30; i++) {
+            testiHahmo.liiku(testiKentta);
+            assertEquals(testiHahmo.getX(), i + 1);
+            assertEquals(testiHahmo.getY(), i + 1);
+        }
+        testiHahmo.setDx(0);
+        testiHahmo.setDy(0);
+    }
+
 }

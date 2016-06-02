@@ -17,12 +17,12 @@ import fi.enorvio.tasohyppelypeli.kayttoliittyma.*;
 import javax.swing.SwingUtilities;
 
 public class Peli {
-    
+
     public static int pisteet = 0;
     public static int elamat = 9;
-    
+
     public static void main(String[] args) {
-        
+
         String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
         Pelaaja esimerkkiPelaaja1 = new Pelaaja(kentanNimet);
         PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(esimerkkiPelaaja1);
@@ -37,9 +37,7 @@ public class Peli {
         ikkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ikkuna.pack();
         ikkuna.setVisible(true);
-        
-        
-       
+
     }
 
 }
