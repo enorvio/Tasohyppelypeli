@@ -6,4 +6,7 @@ Kaksiulotteinen tasohyppelypeli, jossa pelaaja liikuttelee hahmoa näppäimistö
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
+PIT-raportti: https://htmlpreview.github.io/?https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/pit/201606022149/index.html
+
+Checkstyle-raportti: https://htmlpreview.github.io/?https://github.com/enorvio/Tasohyppelypeli/blob/master/Tasohyppelypeli/target/site/checkstyle.html
 
