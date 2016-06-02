@@ -14,3 +14,9 @@ Pelaaja
 ![Alt text][id]
 
 [id]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_1.png  
+
+**Luokkakaavio**
+
+![Alt text][id]
+
+[id]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_2.png  
