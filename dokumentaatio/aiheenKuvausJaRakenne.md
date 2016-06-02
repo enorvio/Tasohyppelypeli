@@ -11,12 +11,12 @@ Pelaaja
 
 **Määrittelyvaiheen luokkakaavio**
 
-![Alt text][id]
+![Alt text][id1]
 
-[id]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_1.png  
+[id1]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_1.png  
 
 **Luokkakaavio**
 
-![Alt text][id]
+![Alt text][id2]
 
-[id]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_2.png  
+[id2]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_2.png  
