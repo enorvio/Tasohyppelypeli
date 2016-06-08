@@ -28,6 +28,7 @@ public class Logiikka {
         for (String nimi : this.kenttienTiedostonimet) {
             this.lukija.lataaKentta(nimi);
             Kentta kentta = new Kentta(this.lukija.lataaLaatat(), this.lukija.lataaViholliset());
+            kentta.lisaaTeleportti(14, 14, 14, 3);
             for (Vihollinen vihollinen : kentta.getViholliset()) {
                 vihollinen.setKentta(kentta);
             }

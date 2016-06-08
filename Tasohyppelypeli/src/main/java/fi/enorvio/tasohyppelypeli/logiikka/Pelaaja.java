@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.enorvio.tasohyppelypeli;
+package fi.enorvio.tasohyppelypeli.logiikka;
+
+import fi.enorvio.tasohyppelypeli.logiikka.Hahmo;
 
 /**
  *
@@ -28,16 +30,6 @@ public class Pelaaja extends Hahmo {
         this.pisteet = 0;
         this.kentanNumero = 0;
 
-    }
-
-    public Pelaaja(String[] kenttienTiedostonimet) {
-        super(1, 1, new Kentta(kenttienTiedostonimet[0]));
-        super.setTormaaEsteisiin(true);
-        this.hyppy = 0;
-        this.kenttienTiedostonimet = kenttienTiedostonimet;
-        this.elamat = 9;
-        this.pisteet = 0;
-        this.kentanNumero = 0;
     }
 
     public Kentta getKentta() {
@@ -122,6 +114,11 @@ public class Pelaaja extends Hahmo {
         }
         super.liiku();
         super.getKentta().poistaPiste(super.getX(), super.getY());
+        int[] teleportinToinenPaa = (super.getKentta().hahmoKoskettaaTeleporttia(super.getX(), super.getY()));
+        if (teleportinToinenPaa != null) {
+            this.setX(teleportinToinenPaa[0]*16);
+            this.setY(teleportinToinenPaa[1]*16);
+        }
     }
 
 }

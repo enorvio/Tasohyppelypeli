@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.enorvio.tasohyppelypeli;
+package fi.enorvio.tasohyppelypeli.kayttoliittyma;
 
+import fi.enorvio.tasohyppelypeli.logiikka.Kentta;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.image.*;
@@ -12,6 +13,9 @@ import java.awt.event.*;
 import javax.swing.Timer;
 import javax.swing.JLabel;
 import fi.enorvio.tasohyppelypeli.logiikka.Logiikka;
+import fi.enorvio.tasohyppelypeli.logiikka.Logiikka;
+import fi.enorvio.tasohyppelypeli.logiikka.Pelaaja;
+import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
 
 public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
 
@@ -21,20 +25,6 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
     public final static int INTERVAL = 10;
     private Timer timer;
     private Logiikka logiikka;
-
-//    public PeliIkkuna(Pelaaja pelaaja) {
-//        super();
-//        this.kuva = new BufferedImage(512, 256, BufferedImage.TYPE_INT_RGB);
-//        this.pelaaja = pelaaja;
-//        String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
-//        this.statuspaneeli = new JLabel("Lives: " + this.pelaaja.getElamat() + "Points: " + this.pelaaja.getPisteet());
-//        setFocusable(true);
-//        this.addKeyListener(this);
-//        requestFocus();
-//        timer = new Timer(INTERVAL, this);
-//        timer.start();
-//
-//    }
 
     public PeliIkkuna(Logiikka logiikka) {
         super();

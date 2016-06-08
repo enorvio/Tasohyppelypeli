@@ -9,6 +9,7 @@ package fi.enorvio.tasohyppelypeli;
  *
  * @author tabby
  */
+import fi.enorvio.tasohyppelypeli.kayttoliittyma.PeliIkkuna;
 import javax.swing.JFrame;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -24,22 +25,11 @@ public class Peli {
 
     public static void main(String[] args) {
 
-        String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
-        Logiikka logiikka = new Logiikka(kentanNimet);
-        //Pelaaja esimerkkiPelaaja1 = new Pelaaja(kentanNimet);
-        PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(logiikka);
-        System.out.println("uusi peli");
-        JFrame ikkuna = new JFrame("Peli");
-        GridLayout asettelija = new GridLayout(2, 1);
-        ikkuna.setLayout(asettelija);
-        ikkuna.add(esimerkkiPeliIkkuna);
-        JLabel kentta = esimerkkiPeliIkkuna.getStatuspaneeli();
-        ikkuna.add(kentta);
-        ikkuna.setPreferredSize(new Dimension(600, 600));
-        ikkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ikkuna.pack();
-        ikkuna.setVisible(true);
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
+        SwingUtilities.invokeLater(kayttoliittyma);
 
+        
+        
     }
 
 }

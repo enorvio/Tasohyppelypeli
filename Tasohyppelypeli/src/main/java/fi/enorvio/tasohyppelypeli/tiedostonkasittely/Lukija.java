@@ -5,6 +5,7 @@
  */
 package fi.enorvio.tasohyppelypeli.tiedostonkasittely;
 
+import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
 import java.util.*;
 import java.io.*;
 import fi.enorvio.tasohyppelypeli.*;

@@ -5,6 +5,8 @@
  */
 package fi.enorvio.tasohyppelypeli;
 
+import fi.enorvio.tasohyppelypeli.logiikka.Kentta;
+import fi.enorvio.tasohyppelypeli.logiikka.Pelaaja;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

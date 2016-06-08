@@ -9,8 +9,7 @@ package fi.enorvio.tasohyppelypeli.kayttoliittyma;
  *
  * @author tabby
  */
-import fi.enorvio.tasohyppelypeli.Pelaaja;
-import fi.enorvio.tasohyppelypeli.PeliIkkuna;
+import fi.enorvio.tasohyppelypeli.logiikka.Pelaaja;
 import java.awt.Container;
 import javax.swing.JFrame;
 import java.awt.Dimension;
@@ -39,7 +38,7 @@ public class Kayttoliittyma implements Runnable {
 
     @Override
     public void run() {
-
+        ikkuna = new JFrame("Valikko");
         ikkuna.setPreferredSize(new Dimension(300, 200));
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

@@ -5,6 +5,7 @@
  */
 package fi.enorvio.tasohyppelypeli;
 
+import fi.enorvio.tasohyppelypeli.logiikka.Kentta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
