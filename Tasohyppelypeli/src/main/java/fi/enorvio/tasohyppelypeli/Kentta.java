@@ -22,6 +22,10 @@ public class Kentta {
     private ArrayList<Vihollinen> viholliset;
     private int pisteet;
     private Dictionary<int[], int[]> teleportit;
+    private final int TYHJA = 0;
+    private final int ESTE = 1;
+    private final int PISTE = 2;
+    private final int PELAAJA = 3;
 
     public Kentta(int[][] laatat) {
         this.leveys = 32;
@@ -31,6 +35,16 @@ public class Kentta {
         this.laatat = laatat;
         this.pisteet = 0;
         this.viholliset = new ArrayList<Vihollinen>();
+    }
+    
+    public Kentta(int[][] laatat, ArrayList<Vihollinen> viholliset) {
+        this.leveys = 32;
+        this.korkeus = 16;
+        this.laatanLeveys = 16;
+        this.laatanKorkeus = 16;
+        this.laatat = laatat;
+        this.pisteet = 0;
+        this.viholliset = viholliset;      
     }
 
     public Kentta(String tiedostonnimi) {
@@ -74,7 +88,7 @@ public class Kentta {
                 for (int i = 0; i < kaannospisteet.length; i++) {
                     kaannospisteet1[i] = Integer.parseInt(kaannospisteet[i]);
                 }
-                this.viholliset.add(new Vihollinen(x, y, suunnat1, kaannospisteet1));
+                this.viholliset.add(new Vihollinen(x, y, suunnat1, kaannospisteet1, this));
             }
             lukija.close();
         } catch (Exception e) {
@@ -106,27 +120,26 @@ public class Kentta {
         this.laatat[y][x] = arvo;
     }
 
-    public boolean kuuluukoPikseliEsteeseen(int x, int y) {
+    public int selvitaPikselinTyyppi(int x, int y) {
         int sarake = x / 16;
         int rivi = y / 16;
-        if (this.laatat[rivi][sarake] == 1) {
-            return true;
-        } else if (this.laatat[rivi][sarake] == 2) {
+        return this.laatat[rivi][sarake];
+    }
+    
+    public void poistaPiste (int x, int y) {
+        if (selvitaPikselinTyyppi(x, y) == PISTE) {
+            int sarake = x / 16;
+            int rivi = y / 16;
             if (Math.abs(x - (16 * sarake + 6)) < 10) {
                 if ((Math.abs(y - (16 * rivi + 6)) < 10)) {
-                    this.laatat[rivi][sarake] = 0;
+                    this.setLaatta(sarake, rivi, TYHJA);
                     this.pisteet++;
                 }
             }
         }
-        for (Vihollinen vihollinen : this.viholliset) {
-            if (vihollinen.kuuluukoPikseliHahmoon(x, y)) {
-                return true;
-            }
-        }
-        return false;
+        
     }
-
+    
     public int[] hahmoKoskettaaTeleporttia(int x, int y) {
         int[] laatta = {x / 16, y / 16};
         return this.teleportit.get(laatta);

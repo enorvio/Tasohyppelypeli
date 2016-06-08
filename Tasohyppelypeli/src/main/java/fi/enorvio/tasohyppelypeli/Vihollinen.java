@@ -15,12 +15,22 @@ public class Vihollinen extends Hahmo {
     private char[] suunnat;
     private int[] kaannospisteet;
 
+    
     public Vihollinen(int x, int y, char[] suunnat, int[] kaannospisteet) {
         super(x, y);
         this.reitinOsuus = 0;
         this.suunnat = suunnat;
         this.kaannospisteet = kaannospisteet;
     }
+    
+    public Vihollinen(int x, int y, char[] suunnat, int[] kaannospisteet, Kentta kentta) {
+        super(x, y, kentta);
+        this.reitinOsuus = 0;
+        this.suunnat = suunnat;
+        this.kaannospisteet = kaannospisteet;
+    }
+    
+    
 
     @Override
     public String toString() {
@@ -55,16 +65,16 @@ public class Vihollinen extends Hahmo {
         return mjono;
     }
 
-    public void liiku(Kentta kentta) {
+    public void liiku() {
         if ((this.suunnat[reitinOsuus] == 'd' && this.getY() < this.kaannospisteet[reitinOsuus]) || ((this.suunnat[reitinOsuus] == 'u' && this.getY() > this.kaannospisteet[reitinOsuus]) || (this.suunnat[reitinOsuus] == 'l' && this.getX() > this.kaannospisteet[reitinOsuus]) || (this.suunnat[reitinOsuus] == 'r' && this.getX() < this.kaannospisteet[reitinOsuus]))) {
-            super.liiku(kentta);
+            super.liiku();
         } else {
-            kaanny(kentta);
+            kaanny();
         }
 
     }
 
-    public void kaanny(Kentta kentta) {
+    public void kaanny() {
         if (reitinOsuus < this.suunnat.length - 1) {
             this.reitinOsuus++;
         } else {
@@ -80,7 +90,7 @@ public class Vihollinen extends Hahmo {
         } else if (this.suunnat[reitinOsuus] == 'l') {
             super.setDx(-1);
         }
-        super.liiku(kentta);
+        super.liiku();
     }
 
 }

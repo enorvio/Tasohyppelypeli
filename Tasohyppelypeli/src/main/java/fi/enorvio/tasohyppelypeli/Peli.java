@@ -15,6 +15,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import fi.enorvio.tasohyppelypeli.kayttoliittyma.*;
 import javax.swing.SwingUtilities;
+import fi.enorvio.tasohyppelypeli.logiikka.Logiikka;
 
 public class Peli {
 
@@ -24,8 +25,9 @@ public class Peli {
     public static void main(String[] args) {
 
         String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
-        Pelaaja esimerkkiPelaaja1 = new Pelaaja(kentanNimet);
-        PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(esimerkkiPelaaja1);
+        Logiikka logiikka = new Logiikka(kentanNimet);
+        //Pelaaja esimerkkiPelaaja1 = new Pelaaja(kentanNimet);
+        PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(logiikka);
         System.out.println("uusi peli");
         JFrame ikkuna = new JFrame("Peli");
         GridLayout asettelija = new GridLayout(2, 1);

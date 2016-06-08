@@ -11,6 +11,7 @@ import java.awt.image.*;
 import java.awt.event.*;
 import javax.swing.Timer;
 import javax.swing.JLabel;
+import fi.enorvio.tasohyppelypeli.logiikka.Logiikka;
 
 public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
 
@@ -19,11 +20,28 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
     private Pelaaja pelaaja;
     public final static int INTERVAL = 10;
     private Timer timer;
+    private Logiikka logiikka;
 
-    public PeliIkkuna(Pelaaja pelaaja) {
+//    public PeliIkkuna(Pelaaja pelaaja) {
+//        super();
+//        this.kuva = new BufferedImage(512, 256, BufferedImage.TYPE_INT_RGB);
+//        this.pelaaja = pelaaja;
+//        String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
+//        this.statuspaneeli = new JLabel("Lives: " + this.pelaaja.getElamat() + "Points: " + this.pelaaja.getPisteet());
+//        setFocusable(true);
+//        this.addKeyListener(this);
+//        requestFocus();
+//        timer = new Timer(INTERVAL, this);
+//        timer.start();
+//
+//    }
+
+    public PeliIkkuna(Logiikka logiikka) {
         super();
         this.kuva = new BufferedImage(512, 256, BufferedImage.TYPE_INT_RGB);
-        this.pelaaja = pelaaja;
+        String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
+        this.logiikka = logiikka;
+        this.pelaaja = this.logiikka.getPelaaja();   
         this.statuspaneeli = new JLabel("Lives: " + this.pelaaja.getElamat() + "Points: " + this.pelaaja.getPisteet());
         setFocusable(true);
         this.addKeyListener(this);
@@ -32,7 +50,8 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
         timer.start();
 
     }
-
+    
+    
     @Override
     public void keyTyped(KeyEvent key) {
     }
@@ -104,13 +123,10 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (this.pelaaja.onElossa()) {
-            this.pelaaja.liiku1();
-            for (Vihollinen vihollinen : this.pelaaja.getKentta().getViholliset()) {
-                vihollinen.liiku(this.pelaaja.getKentta());
-            }
+        
+            this.logiikka.paivita();
             this.statuspaneeli.setText("Lives: " + this.pelaaja.getElamat() + "Points: " + (this.pelaaja.getPisteet() + this.pelaaja.getKentta().getPisteet()));
-        }
+        
 
     }
 
