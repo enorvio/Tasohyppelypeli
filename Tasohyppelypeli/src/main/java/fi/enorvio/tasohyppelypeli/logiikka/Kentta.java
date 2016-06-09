@@ -85,17 +85,17 @@ public class Kentta {
     }
 
     public int selvitaPikselinTyyppi(int x, int y) {
-        int sarake = x / 16;
-        int rivi = y / 16;
+        int sarake = x / 32;
+        int rivi = y / 32;
         return this.laatat[rivi][sarake];
     }
 
     public void poistaPiste(int x, int y) {
         if (selvitaPikselinTyyppi(x, y) == piste) {
-            int sarake = x / 16;
-            int rivi = y / 16;
-            if (Math.abs(x - (16 * sarake + 6)) < 10) {
-                if ((Math.abs(y - (16 * rivi + 6)) < 10)) {
+            int sarake = x / 32;
+            int rivi = y / 32;
+            if (Math.abs(x - (32 * sarake + 12)) < 20) {
+                if ((Math.abs(y - (32 * rivi + 12)) < 20)) {
                     this.setLaatta(sarake, rivi, tyhja);
                     this.pisteet++;
                 }

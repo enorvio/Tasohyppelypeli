@@ -50,7 +50,7 @@ public class ValikonKuuntelija implements ActionListener {
                 ikkuna.add(esimerkkiPeliIkkuna);
                 JLabel kentta = esimerkkiPeliIkkuna.getStatuspaneeli();
                 ikkuna.add(kentta);
-                ikkuna.setPreferredSize(new Dimension(600, 600));
+                ikkuna.setPreferredSize(new Dimension(1050, 1050));
                 ikkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ikkuna.pack();
                 ikkuna.setVisible(true);

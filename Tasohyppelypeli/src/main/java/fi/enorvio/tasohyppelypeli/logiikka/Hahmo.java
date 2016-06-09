@@ -114,10 +114,10 @@ public class Hahmo {
      * @return tieto siitä onko hahmo ilmassa totuusarvon muodossa
      */
     public boolean pelaajaOnIlmassa() {
-        if (this.kentta.selvitaPikselinTyyppi(this.x, this.y + 16) == este) {
+        if (this.kentta.selvitaPikselinTyyppi(this.x, this.y + 32) == este) {
             return false;
         }
-        if (this.kentta.selvitaPikselinTyyppi(this.x + 15, this.y + 16) == este) {
+        if (this.kentta.selvitaPikselinTyyppi(this.x + 31, this.y + 32) == este) {
             return false;
         }
         return true;
@@ -132,7 +132,7 @@ public class Hahmo {
         if (this.kentta.selvitaPikselinTyyppi(x, y) == este) {
             return true;
         }
-        if (this.kentta.selvitaPikselinTyyppi(this.x + 15, this.y) == este) {
+        if (this.kentta.selvitaPikselinTyyppi(this.x + 31, this.y) == este) {
             return true;
         }
         return false;
@@ -166,10 +166,10 @@ public class Hahmo {
      * @return tieto siitä onko paikka sallittu, totuusarvon muodossa
      */
     public boolean voiLiikkuaPisteeseen(int a, int b) {
-        if ((a < 0) || (b < 0) || (a > 496) || (b > 240)) {
+        if ((a < 0) || (b < 0) || (a > 992) || (b > 480)) {
             return false;
         }
-        if ((this.kentta.selvitaPikselinTyyppi(a, b) == este) || (this.kentta.selvitaPikselinTyyppi(a, b + 15) == este) || (this.kentta.selvitaPikselinTyyppi(a + 15, b + 15) == este) || (this.kentta.selvitaPikselinTyyppi(a + 15, b) == este)) {
+        if ((this.kentta.selvitaPikselinTyyppi(a, b) == este) || (this.kentta.selvitaPikselinTyyppi(a, b + 31) == este) || (this.kentta.selvitaPikselinTyyppi(a + 31, b + 31) == este) || (this.kentta.selvitaPikselinTyyppi(a + 31, b) == este)) {
             return false;
         }
         return true;
@@ -185,7 +185,7 @@ public class Hahmo {
      */
     public boolean kuuluukoPikseliHahmoon(int a, int b) {
         if (a >= this.x && b >= this.y) {
-            if (a - this.x < 16 && b - this.y < 16) {
+            if (a - this.x < 32 && b - this.y < 32) {
                 return true;
             }
         }
