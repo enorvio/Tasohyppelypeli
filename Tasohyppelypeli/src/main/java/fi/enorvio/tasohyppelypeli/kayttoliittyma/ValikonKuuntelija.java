@@ -15,13 +15,18 @@ import java.awt.event.ActionListener;
  *
  * @author tabby
  */
+
+/**
+ * Luokassa on toteutettu aloitusvalikon nappien painamiseen reagointi, mukaan lukien uuden pelin aloittaminen.
+ */
 public class ValikonKuuntelija implements ActionListener {
 
     private JButton uusiPeli;
     private JButton lataaPeli;
     private JButton lopeta;
     private JButton korkeimmatPisteet;
-
+    
+    
     public ValikonKuuntelija(JButton uusiPeli, JButton lataaPeli, JButton lopeta, JButton korkeimmatPisteet) {
         this.uusiPeli = uusiPeli;
         this.lataaPeli = lataaPeli;

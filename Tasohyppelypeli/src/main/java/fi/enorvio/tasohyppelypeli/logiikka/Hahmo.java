@@ -9,6 +9,9 @@ package fi.enorvio.tasohyppelypeli.logiikka;
  *
  * @author enorvio
  */
+/**
+ * Luokka toimii pohjana tasohyppelypelin liikkuville olioille.
+ */
 public class Hahmo {
 
     private int x;
@@ -18,10 +21,9 @@ public class Hahmo {
     private int dx;
     private int dy;
     private Kentta kentta;
-    private final int TYHJA = 0;
-    private final int ESTE = 1;
-    private final int PISTE = 2;
-    private final int PELAAJA = 3;
+    private final int tyhja = 0;
+    private final int este = 1;
+    private final int piste = 2;
 
     public Hahmo(int x, int y) {
         this.x = x;
@@ -31,7 +33,7 @@ public class Hahmo {
         this.onElossa = true;
         this.tormaaEsteisiin = false;
     }
-    
+
     public Hahmo(int x, int y, Kentta kentta) {
         this.x = x;
         this.y = y;
@@ -42,15 +44,14 @@ public class Hahmo {
         this.kentta = kentta;
     }
 
-    
     public Kentta getKentta() {
         return this.kentta;
     }
-    
+
     public void setKentta(Kentta kentta) {
         this.kentta = kentta;
     }
-    
+
     public void setTormaaEsteisiin(boolean tormaaEsteisiin) {
         this.tormaaEsteisiin = tormaaEsteisiin;
     }
@@ -65,7 +66,6 @@ public class Hahmo {
 
     public void kuole() {
         this.onElossa = false;
-        System.out.println("kuolit");
     }
 
     public int getX() {
@@ -84,6 +84,9 @@ public class Hahmo {
         this.y = uusiY;
     }
 
+    /**
+     * Metodi nollaa hahmon pysty- ja vaakasuuntaisen nopeuden.
+     */
     public void pysahdy() {
         this.dx = 0;
         this.dy = 0;
@@ -105,63 +108,40 @@ public class Hahmo {
         this.dy = uusiDy;
     }
 
-//    public boolean pelaajaOnIlmassa(Kentta kentta) {
-//        if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y + 16)) {
-//            return false;
-//        }
-//        if (kentta.kuuluukoPikseliEsteeseen(this.x + 15, this.y + 16)) {
-//            return false;
-//        }
-//        return true;
-//    }
-    
+    /**
+     * Metodi kertoo onko välittömästi hahmon alareunan alla laatta
+     *
+     * @return tieto siitä onko hahmo ilmassa totuusarvon muodossa
+     */
     public boolean pelaajaOnIlmassa() {
-        if (this.kentta.selvitaPikselinTyyppi(this.x, this.y + 16) == ESTE) {
+        if (this.kentta.selvitaPikselinTyyppi(this.x, this.y + 16) == este) {
             return false;
         }
-        if (this.kentta.selvitaPikselinTyyppi(this.x + 15, this.y + 16) == ESTE) {
+        if (this.kentta.selvitaPikselinTyyppi(this.x + 15, this.y + 16) == este) {
             return false;
         }
         return true;
     }
 
-//    public boolean ylhaallaOnEste(Kentta kentta) {
-//        if (kentta.kuuluukoPikseliEsteeseen(this.x, this.y)) {
-//            return true;
-//        }
-//        if (kentta.kuuluukoPikseliEsteeseen(this.x + 15, this.y)) {
-//            return true;
-//        }
-//        return false;
-//    }
-    
+    /**
+     * Metodi kertoo onko välittömästi hahmon yläreunan yläpuolella laatta.
+     *
+     * @return tieto siitä onko hahmon yläreunan yläpuolella laatta totuusarvona
+     */
     public boolean ylhaallaOnEste() {
-        if (this.kentta.selvitaPikselinTyyppi(x, y) == ESTE) {
+        if (this.kentta.selvitaPikselinTyyppi(x, y) == este) {
             return true;
         }
-        if (this.kentta.selvitaPikselinTyyppi(this.x + 15, this.y) == ESTE) {
+        if (this.kentta.selvitaPikselinTyyppi(this.x + 15, this.y) == este) {
             return true;
         }
         return false;
     }
-    
-//    public void liiku(Kentta kentta) {
-//        int uusiX = this.x + this.dx;
-//        int uusiY = this.y + this.dy;
-//        if (!this.tormaaEsteisiin) {
-//            this.x = uusiX;
-//            this.y = uusiY;
-//        } else if (voiLiikkuaPisteeseen(kentta, uusiX, uusiY)) {
-//            this.x = uusiX;
-//            this.y = uusiY;
-//        } else if (voiLiikkuaPisteeseen(kentta, this.x, uusiY)) {
-//            this.y = uusiY;
-//        } else if (voiLiikkuaPisteeseen(kentta, uusiX, this.y)) {
-//            this.x = uusiX;
-//        }
-//
-//    }
-    
+
+    /**
+     * Metodi liikuttaa hahmoa yhden pikselin verran vaaka- ja pystysuunnassa
+     * hahmon nopeustietojen perusteella, mikäli se on mahdollista.
+     */
     public void liiku() {
         int uusiX = this.x + this.dx;
         int uusiY = this.y + this.dy;
@@ -178,46 +158,31 @@ public class Hahmo {
         }
     }
 
-//    public boolean voiLiikkuaPisteeseen(Kentta kentta, int a, int b) {
-//        if ((a < 0) || (b < 0) || (a > 496) || (b > 240)) {
-//            return false;
-//        }
-//        if (kentta.kuuluukoPikseliEsteeseen(a, b)) {
-//            return false;
-//        }
-//        if (kentta.kuuluukoPikseliEsteeseen(a, b + 15)) {
-//            return false;
-//        }
-//        if (kentta.kuuluukoPikseliEsteeseen(a + 15, b + 15)) {
-//            return false;
-//        }
-//        if (kentta.kuuluukoPikseliEsteeseen(a + 15, b)) {
-//            return false;
-//        }
-//        return true;
-//
-//    }
-
+    /**
+     * Metodi kertoo olisiko hahmon mahdollista olla annetussa paikassa.
+     *
+     * @param a hahmon vasemman reunan x-koordinaatti tarkistettavassa paikassa
+     * @param b hahmon yläreunan y-koordinaatti tarkistettavassa paikassa
+     * @return tieto siitä onko paikka sallittu, totuusarvon muodossa
+     */
     public boolean voiLiikkuaPisteeseen(int a, int b) {
         if ((a < 0) || (b < 0) || (a > 496) || (b > 240)) {
             return false;
         }
-        if (this.kentta.selvitaPikselinTyyppi(a, b) == ESTE) {
-            return false;
-        }
-        if (this.kentta.selvitaPikselinTyyppi(a, b + 15) == ESTE) {
-            return false;
-        }
-        if (this.kentta.selvitaPikselinTyyppi(a + 15, b + 15) == ESTE) {
-            return false;
-        }
-        if (this.kentta.selvitaPikselinTyyppi(a + 15, b) == ESTE) {
+        if ((this.kentta.selvitaPikselinTyyppi(a, b) == este) || (this.kentta.selvitaPikselinTyyppi(a, b + 15) == este) || (this.kentta.selvitaPikselinTyyppi(a + 15, b + 15) == este) || (this.kentta.selvitaPikselinTyyppi(a + 15, b) == este)) {
             return false;
         }
         return true;
 
     }
-    
+
+    /**
+     * Metodi kertoo kuuluuko annettu hahmon kentän pikseli hahmoon.
+     *
+     * @param a tarkistettavan pikselin x-koordinaatti
+     * @param b tarkistettavan pikselin y-koordinaatti
+     * @return tieto siitä onko pikseli (a, b) osa hahmoa, totuusarvon muodossa
+     */
     public boolean kuuluukoPikseliHahmoon(int a, int b) {
         if (a >= this.x && b >= this.y) {
             if (a - this.x < 16 && b - this.y < 16) {

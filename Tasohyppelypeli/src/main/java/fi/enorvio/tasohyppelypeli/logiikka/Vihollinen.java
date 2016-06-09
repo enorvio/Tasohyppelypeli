@@ -9,28 +9,29 @@ package fi.enorvio.tasohyppelypeli.logiikka;
  *
  * @author tabby
  */
+/**
+ * Luokka jossa toteutetaan viholliset, joihin osuessaan pelaaja kuolee.
+ * Viholliset liikkuvat ennalta määrättyä reittiä.
+ */
 public class Vihollinen extends Hahmo {
 
     private int reitinOsuus;
     private char[] suunnat;
     private int[] kaannospisteet;
 
-    
     public Vihollinen(int x, int y, char[] suunnat, int[] kaannospisteet) {
         super(x, y);
         this.reitinOsuus = 0;
         this.suunnat = suunnat;
         this.kaannospisteet = kaannospisteet;
     }
-    
+
     public Vihollinen(int x, int y, char[] suunnat, int[] kaannospisteet, Kentta kentta) {
         super(x, y, kentta);
         this.reitinOsuus = 0;
         this.suunnat = suunnat;
         this.kaannospisteet = kaannospisteet;
     }
-    
-    
 
     @Override
     public String toString() {

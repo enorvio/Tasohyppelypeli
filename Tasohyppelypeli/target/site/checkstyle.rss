@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 8,
+      <title>File: 10,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.Hahmo.java">fi/enorvio/tasohyppelypeli/Hahmo.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.kayttoliittyma.Kayttoliittyma.java">fi/enorvio/tasohyppelypeli/kayttoliittyma/Kayttoliittyma.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.kayttoliittyma.Kayttoliittyma.java">fi/enorvio/tasohyppelypeli/kayttoliittyma/Kayttoliittyma.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.logiikka.Vihollinen.java">fi/enorvio/tasohyppelypeli/logiikka/Vihollinen.java</a>
                 </td>
                 <td>
                   0
@@ -88,34 +88,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.Pelaaja.java">fi/enorvio/tasohyppelypeli/Pelaaja.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.Kentta.java">fi/enorvio/tasohyppelypeli/Kentta.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.Peli.java">fi/enorvio/tasohyppelypeli/Peli.java</a>
                 </td>
                 <td>
@@ -130,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.PeliIkkuna.java">fi/enorvio/tasohyppelypeli/PeliIkkuna.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.logiikka.Pelaaja.java">fi/enorvio/tasohyppelypeli/logiikka/Pelaaja.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +116,63 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.Vihollinen.java">fi/enorvio/tasohyppelypeli/Vihollinen.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.logiikka.Hahmo.java">fi/enorvio/tasohyppelypeli/logiikka/Hahmo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.kayttoliittyma.PeliIkkuna.java">fi/enorvio/tasohyppelypeli/kayttoliittyma/PeliIkkuna.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.logiikka.Kentta.java">fi/enorvio/tasohyppelypeli/logiikka/Kentta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.tiedostonkasittely.Lukija.java">fi/enorvio/tasohyppelypeli/tiedostonkasittely/Lukija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.enorvio.tasohyppelypeli.logiikka.Logiikka.java">fi/enorvio/tasohyppelypeli/logiikka/Logiikka.java</a>
                 </td>
                 <td>
                   0

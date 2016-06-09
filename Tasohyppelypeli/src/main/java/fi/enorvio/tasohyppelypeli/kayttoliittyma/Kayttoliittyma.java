@@ -22,6 +22,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+/**
+ * Luokka sisältää pelin aloitusvalikon.
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame ikkuna;

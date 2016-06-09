@@ -13,6 +13,11 @@ import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
 import java.util.*;
 import java.io.*;
 
+/**
+ * Luokka tarjoaa toiminnallisuuden tasohyppelypelin yksittäisen tason luomiseen
+ * ja tiedon saamiseen sen kustakin laatasta (tile), vihollisesta ja
+ * teleportista.
+ */
 public class Kentta {
 
     private int leveys;
@@ -23,10 +28,11 @@ public class Kentta {
     private ArrayList<Vihollinen> viholliset;
     private int pisteet;
     private HashMap<int[], int[]> teleportit;
-    private final int TYHJA = 0;
-    private final int ESTE = 1;
-    private final int PISTE = 2;
-    private final int PELAAJA = 3;
+    private final int tyhja = 0;
+    private final int este = 1;
+    private final int piste = 2;
+    private final int pelaaja = 3;
+    private final int teleportti = 4;
 
     public Kentta(int[][] laatat) {
         this.leveys = 32;
@@ -36,8 +42,9 @@ public class Kentta {
         this.laatat = laatat;
         this.pisteet = 0;
         this.viholliset = new ArrayList<Vihollinen>();
+        this.teleportit = new HashMap<int[], int[]>();
     }
-    
+
     public Kentta(int[][] laatat, ArrayList<Vihollinen> viholliset) {
         this.leveys = 32;
         this.korkeus = 16;
@@ -47,57 +54,7 @@ public class Kentta {
         this.pisteet = 0;
         this.viholliset = viholliset;
         this.teleportit = new HashMap<int[], int[]>();
-        
     }
-
-//    public Kentta(String tiedostonnimi) {
-//        this.leveys = 32;
-//        this.korkeus = 16;
-//        this.laatanLeveys = 16;
-//        this.laatanKorkeus = 16;
-//        this.laatat = new int[16][32];
-//        this.pisteet = 0;
-//        this.viholliset = new ArrayList<Vihollinen>();
-//        try {
-//            File tiedosto = new File(tiedostonnimi);
-//            Scanner lukija = new Scanner(tiedosto);
-//            for (int i = 0; i < 16; i++) {
-//                int j = 0;
-//                String rivi = lukija.nextLine();
-//                String[] osat = rivi.split(",");
-//                for (String osa : osat) {
-//                    if (osa.equals("1")) {
-//                        this.laatat[i][j] = 1;
-//                    } else if (osa.equals("0")) {
-//                        this.laatat[i][j] = 0;
-//                    } else if (osa.equals("2")) {
-//                        this.laatat[i][j] = 2;
-//                    }
-//                    j++;
-//                }
-//            }
-//            while (lukija.hasNextLine()) {
-//                String rivi = lukija.nextLine();
-//                String[] osat = rivi.split(",");
-//                int x = Integer.parseInt(osat[0]);
-//                int y = Integer.parseInt(osat[1]);
-//                String suunnat = osat[2];
-//                char[] suunnat1 = new char[suunnat.length()];
-//                for (int i = 0; i < suunnat.length(); i++) {
-//                    suunnat1[i] = suunnat.charAt(i);
-//                }
-//                String[] kaannospisteet = osat[3].split(":");
-//                int[] kaannospisteet1 = new int[kaannospisteet.length];
-//                for (int i = 0; i < kaannospisteet.length; i++) {
-//                    kaannospisteet1[i] = Integer.parseInt(kaannospisteet[i]);
-//                }
-//                this.viholliset.add(new Vihollinen(x, y, suunnat1, kaannospisteet1, this));
-//            }
-//            lukija.close();
-//        } catch (Exception e) {
-//            System.out.println("Tiedostoa ei loydy");
-//        }
-//    }
 
     public ArrayList<Vihollinen> getViholliset() {
         return this.viholliset;
@@ -105,6 +62,10 @@ public class Kentta {
 
     public int getPisteet() {
         return this.pisteet;
+    }
+
+    public void setPisteet(int pisteet) {
+        this.pisteet = pisteet;
     }
 
     public int getLeveys() {
@@ -128,29 +89,46 @@ public class Kentta {
         int rivi = y / 16;
         return this.laatat[rivi][sarake];
     }
-    
-    public void poistaPiste (int x, int y) {
-        if (selvitaPikselinTyyppi(x, y) == PISTE) {
+
+    public void poistaPiste(int x, int y) {
+        if (selvitaPikselinTyyppi(x, y) == piste) {
             int sarake = x / 16;
             int rivi = y / 16;
             if (Math.abs(x - (16 * sarake + 6)) < 10) {
                 if ((Math.abs(y - (16 * rivi + 6)) < 10)) {
-                    this.setLaatta(sarake, rivi, TYHJA);
+                    this.setLaatta(sarake, rivi, tyhja);
                     this.pisteet++;
                 }
             }
         }
-        
+
     }
-    
-    public int[] hahmoKoskettaaTeleporttia(int x, int y) {
-        int[] laatta = {x / 16, y / 16};
-        return this.teleportit.get(laatta);
-    }
-    
-    public void lisaaTeleportti(int alkux, int alkuy, int loppux, int loppuy) {
+
+    public void luoTeleportti(int alkux, int alkuy, int loppux, int loppuy) {
         int[] alku = {alkux, alkuy};
         int[] loppu = {loppux, loppuy};
         this.teleportit.put(alku, loppu);
+        this.teleportit.put(loppu, alku);
+        this.setLaatta(alkux, alkuy, 4);
+        this.setLaatta(loppux, loppuy, 4);
+    }
+
+    public void tulostaTeleportit() {
+        for (int[] alku : this.teleportit.keySet()) {
+            System.out.println("alku: " + alku[0] + ", " + alku[1] + ", loppu: " + this.teleportit.get(alku)[0] + ", " + this.teleportit.get(alku)[1]);
+        }
+    }
+
+    public int[] getTeleportinToinenPaa(int[] alku) {
+        for (int[] taulukko : this.teleportit.keySet()) {
+            if (Arrays.equals(taulukko, alku)) {
+                return this.teleportit.get(taulukko);
+            }
+        }
+        return null;
+    }
+
+    public HashMap<int[], int[]> getTeleportit() {
+        return this.teleportit;
     }
 }

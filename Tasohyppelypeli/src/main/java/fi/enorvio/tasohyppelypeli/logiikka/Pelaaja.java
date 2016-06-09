@@ -11,6 +11,10 @@ import fi.enorvio.tasohyppelypeli.logiikka.Hahmo;
  *
  * @author tabby
  */
+
+/**
+ * Luokka jonka instanssi vastaa pelaajaa (koko pelin ajan, ei vain yksittäisessä kentässä). Luokka tarjoaa metodit pelaajan liikuttamiseen ja kuoleman käsittelyyn. 
+ */
 public class Pelaaja extends Hahmo {
 
     private Kentta kentta;
@@ -47,7 +51,7 @@ public class Pelaaja extends Hahmo {
     public int getPisteet() {
         return this.pisteet;
     }
-    
+
     public void setPisteet(int uudetPisteet) {
         this.pisteet = uudetPisteet;
     }
@@ -65,40 +69,8 @@ public class Pelaaja extends Hahmo {
     public void kuole() {
         super.kuole();
         this.elamat--;
-//        if (this.elamat > 0) {
-//            this.resetoiKentta();
-//            ela();
-//        }
     }
 
-//    public void resetoiKentta() {
-//        super.setX(1);
-//        super.setY(1);
-//        super.setKentta(new Kentta(this.kenttienTiedostonimet[kentanNumero]));
-//    }
-
-//    public void liiku1() {
-//        if (this.hyppy == 0) {
-//            super.setDy(1);
-//            if (super.getY() >= 239) {
-//                kuole();
-//            }
-//        }
-//        if (super.ylhaallaOnEste()) {
-//            this.hyppy = 0;
-//        } else if (this.hyppy > 0) {
-//            super.setDy(-1);
-//            this.hyppy--;
-//        }
-//        super.liiku();
-//        super.getKentta().poistaPiste(super.getX(), super.getY());
-//        if (super.getX() >= 495) {
-//            this.kentanNumero++;
-//            this.pisteet += super.getKentta().getPisteet();
-//            this.resetoiKentta();
-//        }
-//    }
-    
     public void liiku() {
         if (this.hyppy == 0) {
             super.setDy(1);
@@ -113,12 +85,21 @@ public class Pelaaja extends Hahmo {
             this.hyppy--;
         }
         super.liiku();
-        super.getKentta().poistaPiste(super.getX(), super.getY());
-        int[] teleportinToinenPaa = (super.getKentta().hahmoKoskettaaTeleporttia(super.getX(), super.getY()));
-        if (teleportinToinenPaa != null) {
-            this.setX(teleportinToinenPaa[0]*16);
-            this.setY(teleportinToinenPaa[1]*16);
+        int nykyinenX = super.getX();
+        int nykyinenY = super.getY();
+        super.getKentta().poistaPiste(nykyinenX, nykyinenY);
+        if (super.getKentta().selvitaPikselinTyyppi(nykyinenX, nykyinenY) == 4) {
+            int[] alku = {nykyinenX / 16, nykyinenY / 16};
+            System.out.println(alku[0] + ", " + alku[1]);
+            int[] loppu = super.getKentta().getTeleportinToinenPaa(alku);
+            System.out.println(loppu);
+            if (loppu != null) {
+                this.setX((loppu[0] + 1) * 16);
+                this.setY((loppu[1]) * 16);
+            }
+            
         }
+
     }
 
 }

@@ -14,6 +14,10 @@ import fi.enorvio.tasohyppelypeli.*;
  *
  * @author tabby
  */
+/**
+ * Luokka jonka avulla voidaan lukea tekstitiedostoja, joina kentät on
+ * tallennettu.
+ */
 public class Lukija {
 
     private int[][] laatat;
@@ -40,6 +44,8 @@ public class Lukija {
                         this.laatat[i][j] = 0;
                     } else if (osa.equals("2")) {
                         this.laatat[i][j] = 2;
+                    } else if (osa.equals("4")) {
+                        this.laatat[i][j] = 4;
                     }
                     j++;
                 }
@@ -70,11 +76,11 @@ public class Lukija {
         }
         return new Vihollinen(x, y, suunnat1, kaannospisteet1);
     }
-    
+
     public ArrayList<Vihollinen> lataaViholliset() {
         return this.viholliset;
     }
-    
+
     public int[][] lataaLaatat() {
         return this.laatat;
     }

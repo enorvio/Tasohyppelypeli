@@ -1,10 +1,17 @@
-#Thu Jun 02 22:00:38 EEST 2016
+#Thu Jun 09 04:48:35 EEST 2016
 C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\Kentta.java=1464893935352
-C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\kayttoliittyma\\Kayttoliittyma.java=1464893935227
-C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\Peli.java=1464892440813
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\logiikka\\Vihollinen.java=1465435398908
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\kayttoliittyma\\PeliIkkuna.java=1465435398815
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\logiikka\\Pelaaja.java=1465435398378
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\kayttoliittyma\\Kayttoliittyma.java=1465435398159
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\tiedostonkasittely\\Lukija.java=1465435398752
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\Peli.java=1465435399033
 C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\PeliIkkuna.java=1464892440859
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\logiikka\\Hahmo.java=1465436855275
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\logiikka\\Kentta.java=1465435818022
 C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\Hahmo.java=1464892440719
-C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\kayttoliittyma\\ValikonKuuntelija.java=1464894033556
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\logiikka\\Logiikka.java=1465435532880
+C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\kayttoliittyma\\ValikonKuuntelija.java=1465435398659
 configuration*?=4251820A4367B0DD2862BA15A4364F6F110D04F6
 C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\Pelaaja.java=1464892440797
 C\:\\Users\\tabby\\Documents\\NetBeansProjects\\Tasohyppelypeli\\Tasohyppelypeli\\src\\main\\java\\fi\\enorvio\\tasohyppelypeli\\Vihollinen.java=1464892440906

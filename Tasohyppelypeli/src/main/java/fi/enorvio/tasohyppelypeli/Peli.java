@@ -18,6 +18,9 @@ import fi.enorvio.tasohyppelypeli.kayttoliittyma.*;
 import javax.swing.SwingUtilities;
 import fi.enorvio.tasohyppelypeli.logiikka.Logiikka;
 
+/**
+ * Luokka sisältää vain main-metodin.
+ */
 public class Peli {
 
     public static int pisteet = 0;
@@ -28,8 +31,6 @@ public class Peli {
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
 
-        
-        
     }
 
 }
