@@ -18,6 +18,7 @@ import fi.enorvio.tasohyppelypeli.logiikka.Pelaaja;
 import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
 import javax.imageio.ImageIO;
 import java.io.*;
+import java.util.HashMap;
 
 /**
  * Luokka sisältää itse peli-ikkunan ja sen grafiikan sekä näppäinkontrollien
@@ -36,6 +37,7 @@ public class PeliIkkuna extends JPanel implements KeyListener, ActionListener {
     public BufferedImage tile1;
     public BufferedImage tile2;
     public BufferedImage tile3;
+    private HashMap<Integer, BufferedImage> kuvat;
     private int juoksunVaihe;
     private Pelaaja pelaaja;
     public final static int INTERVAL = 10;

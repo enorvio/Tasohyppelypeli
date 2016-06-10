@@ -86,7 +86,7 @@ public class Logiikka {
                 this.pelaaja.kuole();
             }
         }
-        if (pelaaja.getX() >= 495) {
+        if (pelaaja.getX() >= 990) {
             this.seuraavaKentta();
         }
     }
