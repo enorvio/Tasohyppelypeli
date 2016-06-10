@@ -26,6 +26,7 @@ public class Logiikka {
     private ArrayList<Kentta> kentat;
     private int kentanNumero;
     private Lukija lukija;
+    private boolean jatkuu;
 
     public Logiikka(String[] kenttienTiedostonimet) {
         this.kentanNumero = 0;
@@ -44,6 +45,7 @@ public class Logiikka {
             kentta.tulostaTeleportit();
         }
         this.pelaaja = new Pelaaja(this.kentat.get(0));
+        this.jatkuu = true;
     }
 
     public Pelaaja getPelaaja() {
@@ -61,6 +63,7 @@ public class Logiikka {
 
     public void seuraavaKentta() {
         this.pelaaja.setPisteet(this.pelaaja.getPisteet() + this.kentat.get(this.kentanNumero).getPisteet());
+        this.pelaaja.setElamat(this.pelaaja.getElamat() + this.kentat.get(this.kentanNumero).getElamat());
         if (this.kentanNumero < this.kentat.size() - 1) {
             this.kentanNumero++;
         } else {
@@ -70,14 +73,18 @@ public class Logiikka {
     }
 
     public void lopetaPeli() {
-
+        this.jatkuu = false;
     }
 
     public void paivita() {
         if (!pelaaja.onElossa()) {
-            this.pelaaja.ela();
-            this.resetoiKentta();
-            this.pelaaja.ela();
+            if (pelaaja.getElamat() > 0) {
+                this.pelaaja.ela();
+                this.resetoiKentta();
+                this.pelaaja.ela();
+            } else {
+                lopetaPeli();
+            }           
         }
         pelaaja.liiku();
         for (Vihollinen vihollinen : this.pelaaja.getKentta().getViholliset()) {
@@ -89,6 +96,10 @@ public class Logiikka {
         if (pelaaja.getX() >= 990) {
             this.seuraavaKentta();
         }
+    }
+    
+    public boolean jatkuu() {
+        return this.jatkuu;
     }
 
 }

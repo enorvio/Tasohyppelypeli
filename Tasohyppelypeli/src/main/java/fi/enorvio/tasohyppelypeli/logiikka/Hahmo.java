@@ -21,9 +21,6 @@ public class Hahmo {
     private int dx;
     private int dy;
     private Kentta kentta;
-    private final int tyhja = 0;
-    private final int este = 1;
-    private final int piste = 2;
 
     public Hahmo(int x, int y) {
         this.x = x;
@@ -114,10 +111,10 @@ public class Hahmo {
      * @return tieto siitä onko hahmo ilmassa totuusarvon muodossa
      */
     public boolean pelaajaOnIlmassa() {
-        if (this.kentta.selvitaPikselinTyyppi(this.x, this.y + 32) == este) {
+        if (this.kentta.pikseliKuuluuEsteeseen(this.x, this.y + 32)) {
             return false;
         }
-        if (this.kentta.selvitaPikselinTyyppi(this.x + 31, this.y + 32) == este) {
+        if (this.kentta.pikseliKuuluuEsteeseen(this.x + 31, this.y + 32)) {
             return false;
         }
         return true;
@@ -129,10 +126,10 @@ public class Hahmo {
      * @return tieto siitä onko hahmon yläreunan yläpuolella laatta totuusarvona
      */
     public boolean ylhaallaOnEste() {
-        if (this.kentta.selvitaPikselinTyyppi(x, y) == este) {
+        if (this.kentta.pikseliKuuluuEsteeseen(x, y)) {
             return true;
         }
-        if (this.kentta.selvitaPikselinTyyppi(this.x + 31, this.y) == este) {
+        if (this.kentta.pikseliKuuluuEsteeseen(this.x + 31, this.y)) {
             return true;
         }
         return false;
@@ -169,7 +166,7 @@ public class Hahmo {
         if ((a < 0) || (b < 0) || (a > 992) || (b > 480)) {
             return false;
         }
-        if ((this.kentta.selvitaPikselinTyyppi(a, b) == este) || (this.kentta.selvitaPikselinTyyppi(a, b + 31) == este) || (this.kentta.selvitaPikselinTyyppi(a + 31, b + 31) == este) || (this.kentta.selvitaPikselinTyyppi(a + 31, b) == este)) {
+        if (this.kentta.pikseliKuuluuEsteeseen(a, b) || this.kentta.pikseliKuuluuEsteeseen(a, b + 31) || this.kentta.pikseliKuuluuEsteeseen(a + 31, b + 31) || this.kentta.pikseliKuuluuEsteeseen(a + 31, b)) {
             return false;
         }
         return true;

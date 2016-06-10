@@ -27,12 +27,8 @@ public class Kentta {
     private int[][] laatat;
     private ArrayList<Vihollinen> viholliset;
     private int pisteet;
+    private int elamat;
     private HashMap<int[], int[]> teleportit;
-    private final int tyhja = 0;
-    private final int este = 1;
-    private final int piste = 2;
-    private final int pelaaja = 3;
-    private final int teleportti = 4;
 
     public Kentta(int[][] laatat) {
         this.leveys = 32;
@@ -68,6 +64,10 @@ public class Kentta {
         this.pisteet = pisteet;
     }
 
+    public int getElamat() {
+        return this.elamat;
+    }
+    
     public int getLeveys() {
         return this.leveys;
     }
@@ -90,15 +90,50 @@ public class Kentta {
         return this.laatat[rivi][sarake];
     }
 
+    public boolean pikseliKuuluuEsteeseen(int x, int y) {
+        int tyyppi = selvitaPikselinTyyppi(x, y);
+        if (tyyppi !=0 && tyyppi < 50) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean pikseliKuuluuTeleporttiin(int x, int y) {
+        int tyyppi = selvitaPikselinTyyppi(x, y);
+        if (tyyppi >71 && tyyppi <= 73) {
+            return true;
+        }
+        return false;
+    }
+    
     public void poistaPiste(int x, int y) {
-        if (selvitaPikselinTyyppi(x, y) == piste) {
-            int sarake = x / 32;
-            int rivi = y / 32;
-            if (Math.abs(x - (32 * sarake + 12)) < 20) {
-                if ((Math.abs(y - (32 * rivi + 12)) < 20)) {
-                    this.setLaatta(sarake, rivi, tyhja);
-                    this.pisteet++;
-                }
+        int tyyppi = selvitaPikselinTyyppi(x, y);
+        int sarake = x / 32;
+        int rivi = y / 32;
+        if (tyyppi >= 50 && tyyppi <= 71 && (Math.abs(x - 32 * sarake) < 10) && (Math.abs(x - 32 * sarake) < 10)) {
+            this.setLaatta(sarake, rivi, 0);
+            if (tyyppi < 60) {
+                this.pisteet++;
+            } else if (tyyppi == 60) {
+                this.pisteet += 2;
+            } else if (tyyppi < 63) {
+                this.pisteet += 5;
+            } else if (tyyppi == 64) {
+                this.pisteet += 10;
+            } else if (tyyppi == 65) {
+                this.pisteet += 25;
+            } else if (tyyppi == 66) {
+                this.pisteet += 50;
+            } else if (tyyppi == 67) {
+               this.pisteet += 100; 
+            } else if (tyyppi == 68) {
+               this.pisteet += 1000; 
+            } else if (tyyppi == 69) {
+               this.pisteet += 10000; 
+            } else if (tyyppi == 70) {
+               this.elamat++;
+            } else if (tyyppi == 71) {
+               this.elamat += 10;
             }
         }
 
@@ -109,8 +144,8 @@ public class Kentta {
         int[] loppu = {loppux, loppuy};
         this.teleportit.put(alku, loppu);
         this.teleportit.put(loppu, alku);
-        this.setLaatta(alkux, alkuy, 4);
-        this.setLaatta(loppux, loppuy, 4);
+        this.setLaatta(alkux, alkuy, 72);
+        this.setLaatta(loppux, loppuy, 72);
     }
 
     public void tulostaTeleportit() {

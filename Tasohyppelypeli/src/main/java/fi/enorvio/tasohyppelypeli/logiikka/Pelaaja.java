@@ -47,6 +47,10 @@ public class Pelaaja extends Hahmo {
     public int getElamat() {
         return this.elamat;
     }
+    
+    public void setElamat(int elamat) {
+        this.elamat = elamat;
+    }
 
     public int getPisteet() {
         return this.pisteet;
@@ -58,7 +62,7 @@ public class Pelaaja extends Hahmo {
 
     public void hyppaa() {
         if (!super.pelaajaOnIlmassa()) {
-            this.hyppy = 100;
+            this.hyppy = 80;
         }
     }
 
@@ -88,7 +92,7 @@ public class Pelaaja extends Hahmo {
         int nykyinenX = super.getX();
         int nykyinenY = super.getY();
         super.getKentta().poistaPiste(nykyinenX, nykyinenY);
-        if (super.getKentta().selvitaPikselinTyyppi(nykyinenX, nykyinenY) == 4) {
+        if (super.getKentta().pikseliKuuluuTeleporttiin(nykyinenX, nykyinenY)) {
             int[] alku = {nykyinenX / 32, nykyinenY / 32};
             System.out.println(alku[0] + ", " + alku[1]);
             int[] loppu = super.getKentta().getTeleportinToinenPaa(alku);

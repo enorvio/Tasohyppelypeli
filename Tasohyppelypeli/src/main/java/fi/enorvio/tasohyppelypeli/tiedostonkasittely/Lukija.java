@@ -9,6 +9,8 @@ import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
 import java.util.*;
 import java.io.*;
 import fi.enorvio.tasohyppelypeli.*;
+import java.awt.image.*;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -38,15 +40,7 @@ public class Lukija {
                 String rivi = this.tiedostonLukija.nextLine();
                 String[] osat = rivi.split(",");
                 for (String osa : osat) {
-                    if (osa.equals("1")) {
-                        this.laatat[i][j] = 1;
-                    } else if (osa.equals("0")) {
-                        this.laatat[i][j] = 0;
-                    } else if (osa.equals("2")) {
-                        this.laatat[i][j] = 2;
-                    } else if (osa.equals("4")) {
-                        this.laatat[i][j] = 4;
-                    }
+                    this.laatat[i][j] = Integer.parseInt(osa);
                     j++;
                 }
             }
@@ -84,5 +78,74 @@ public class Lukija {
     public int[][] lataaLaatat() {
         return this.laatat;
     }
+    
+    public BufferedImage lataaKuva(String kuvanTiedostonimi) {
+        BufferedImage kuva = null;
+        try {
+            kuva = ImageIO.read(new File(kuvanTiedostonimi));
+        } catch (IOException e) {
+            System.out.println("jotain meni vituiks kuvan lataamisessa " + kuvanTiedostonimi);
+        }
+        return kuva;
+    } 
+    
+    public ArrayList<String> lataaPisteet() {
+        ArrayList<String> pisteet = new ArrayList<String>();
+        try {
+            File pistetaulu = new File("src/main/resources/highscore.txt");
+            this.tiedostonLukija = new Scanner(pistetaulu);
+            while (this.tiedostonLukija.hasNextLine()) {
+                String rivi = this.tiedostonLukija.nextLine();
+                System.out.println(rivi);
+                pisteet.add(rivi);               
+            }
+        } catch (Exception e) {
+            System.out.println("tiedostoa ei löydy");
+        }
+        return pisteet;
+    }
+    
+    public void kirjoitaPisteet (ArrayList<String> pisteet) {
+        try {
+           FileWriter kirjoittaja = new FileWriter("src/main/resources/highscore.txt");
+            for (String piste : pisteet) {
+                kirjoittaja.write(piste + "\n");
+            }
+            kirjoittaja.close(); 
+        } catch (IOException e) {
+            System.out.println("jotain meni vituiks pisteiden kirjoittamisessa");
+        }
+        
+    }
+    
+    public void tallennaPisteet(String nimi, int pisteet) {
+        ArrayList<String> nykyisetPisteet = this.lataaPisteet();
+        int pistesija = -1;
+        for (int i = 0; i < nykyisetPisteet.size(); i++) {
+            String[] osat = nykyisetPisteet.get(i).split(":");
+            System.out.println(osat[1]);
+            if (pisteet > Integer.parseInt(osat[1])) {
+                pistesija = i;
+                break;
+            }      
+        }
+        if (pistesija >= 0) {
+            nykyisetPisteet.add(pistesija, nimi + ":" + pisteet);
+            nykyisetPisteet.remove(nykyisetPisteet.size() - 1);
+            kirjoitaPisteet(nykyisetPisteet);
+        }      
+    } 
+    
+    public String pisteetMerkkijonona() {
+        ArrayList<String> nykyisetPisteet = this.lataaPisteet();
+        String mjono = "";
+        for (int i = 1; i <= 10; i++) {
+            String[] osat = nykyisetPisteet.get(i - 1).split(":");
+            mjono += i + ". " + osat[0] + ": " + osat[1] + "\n";
+        }
+        return mjono;
+    }
+    
+    
 
 }
