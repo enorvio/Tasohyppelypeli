@@ -1,3 +1,13 @@
+fi\enorvio\tasohyppelypeli\kayttoliittyma\Grafiikka.class
+fi\enorvio\tasohyppelypeli\tiedostonkasittely\Lukija.class
 fi\enorvio\tasohyppelypeli\kayttoliittyma\Kayttoliittyma.class
-fi\enorvio\tasohyppelypeli\Peli.class
 fi\enorvio\tasohyppelypeli\kayttoliittyma\ValikonKuuntelija.class
+fi\enorvio\tasohyppelypeli\logiikka\Kentta.class
+fi\enorvio\tasohyppelypeli\logiikka\Logiikka.class
+fi\enorvio\tasohyppelypeli\kayttoliittyma\PeliIkkuna.class
+fi\enorvio\tasohyppelypeli\logiikka\Hahmo.class
+fi\enorvio\tasohyppelypeli\logiikka\Vihollinen.class
+fi\enorvio\tasohyppelypeli\logiikka\Pelaaja.class
+fi\enorvio\tasohyppelypeli\kayttoliittyma\NimenKysyjanKuuntelija.class
+fi\enorvio\tasohyppelypeli\Peli.class
+fi\enorvio\tasohyppelypeli\kayttoliittyma\NimenKysyja.class

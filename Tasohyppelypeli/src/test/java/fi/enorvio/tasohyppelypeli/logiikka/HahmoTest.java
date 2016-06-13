@@ -51,7 +51,7 @@ public class HahmoTest {
     @Test
     public void testaaEttaPysahtyyOikeaanReunaan() {
         System.out.println("Testataan ettei hahmo voi liikkua oikean reunan ulkopuolelle.");
-        assertFalse(testiHahmo.voiLiikkuaPisteeseen(497, 0));
+        assertFalse(testiHahmo.voiLiikkuaPisteeseen(993, 0));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class HahmoTest {
         testiKentta.setLaatta(0, 0, 1);
         for (int x = 1; x < 30; x++) {
             for (int y = 1; y < 30; y++) {
-                if (x < 16 && y < 16) {
+                if (x < 32 && y < 32) {
                     assertFalse(testiHahmo.voiLiikkuaPisteeseen(x, y));
                 } else {
                     assertTrue(testiHahmo.voiLiikkuaPisteeseen(x, y));
@@ -79,14 +79,14 @@ public class HahmoTest {
         testiHahmo.setY(0);
         for (int i = 0; i < 14; i++) {
             testiKentta.setLaatta(1, i, 1);
-            assertTrue(testiHahmo.voiLiikkuaPisteeseen(0, i * 16));
-            assertTrue(testiHahmo.voiLiikkuaPisteeseen(0, i * 16 + 3));
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(0, i * 32));
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(0, i * 32 + 3));
         }
         testiHahmo.setDy(1);
         for (int i = 0; i < 500; i++) {
             testiHahmo.liiku();
         }
-        assertEquals(testiHahmo.getY(), 224);
+        assertEquals(testiHahmo.getY(), 448);
         testiHahmo.setDy(0);
         for (int i = 0; i < 14; i++) {
             testiKentta.setLaatta(1, i, 0);
@@ -101,14 +101,14 @@ public class HahmoTest {
         testiHahmo.setY(0);
         for (int i = 0; i < 29; i++) {
             testiKentta.setLaatta(i, 1, 1);
-            assertTrue(testiHahmo.voiLiikkuaPisteeseen(i * 16, 0));
-            assertTrue(testiHahmo.voiLiikkuaPisteeseen(i * 16 + 3, 0));
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(i * 32, 0));
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(i * 32 + 3, 0));
         }
         testiHahmo.setDx(1);
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 1000; i++) {
             testiHahmo.liiku();
         }
-        assertEquals(testiHahmo.getX(), 496);
+        assertEquals(testiHahmo.getX(), 992);
         testiHahmo.setDx(0);
         for (int i = 0; i < 29; i++) {
             testiKentta.setLaatta(i, 1, 0);
@@ -119,19 +119,19 @@ public class HahmoTest {
     public void testaaEttaHahmoVoiMennaKahdenLaatanValiseenRakoon() {
         System.out.println("Testataan että hahmo voi liikkua ahtaimmassa mahdollisessa kahden laatan välisessä raossa.");
         testiHahmo.setTormaaEsteisiin(true);
-        testiHahmo.setX(16);
+        testiHahmo.setX(32);
         testiHahmo.setY(0);
         testiHahmo.setDy(1);
         for (int i = 1; i < 13; i++) {
             testiKentta.setLaatta(0, i, 1);
             testiKentta.setLaatta(2, i, 1);
-            assertTrue(testiHahmo.voiLiikkuaPisteeseen(16, i));
+            assertTrue(testiHahmo.voiLiikkuaPisteeseen(32, i));
         }
         for (int i = 0; i < 500; i++) {
             testiHahmo.liiku();
 
         }
-        assertEquals(testiHahmo.getY(), 224);
+        assertEquals(testiHahmo.getY(), 448);
         for (int i = 1; i < 13; i++) {
             testiKentta.setLaatta(0, i, 0);
             testiKentta.setLaatta(2, i, 0);
@@ -157,14 +157,14 @@ public class HahmoTest {
 
     @Test
     public void testKuuluukoPikseliHahmoon() {
-        for (int i = 0; i < 16; i++) {
-            for (int j = 0; i < 16; i++) {
+        for (int i = 0; i < 32; i++) {
+            for (int j = 0; i < 32; i++) {
                 assertTrue(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + i, testiHahmo.getY() + j));
             }
         }
-        for (int i = 0; i < 16; i++) {
-            assertFalse(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + i, testiHahmo.getY() + 16));
-            assertFalse(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + 16, testiHahmo.getY() + i));
+        for (int i = 0; i < 32; i++) {
+            assertFalse(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + i, testiHahmo.getY() + 32));
+            assertFalse(testiHahmo.kuuluukoPikseliHahmoon(testiHahmo.getX() + 32, testiHahmo.getY() + i));
         }
     }
     

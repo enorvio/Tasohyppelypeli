@@ -1,10 +1,10 @@
 olkky:400000007
 a:800
 b:600
+pipikani:18
 olllllkky:15
+jayn:15
 jeesus:13
 c:6
 d:5
 sappitatti:4
-aasi:3
-e:0

@@ -31,6 +31,6 @@ public class Peli {
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
 
-    }
+    }  
 
 }

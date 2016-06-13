@@ -45,10 +45,10 @@ public class KenttaTest {
     public void testSelvitaPikselinTyyppi() {
         for (int j = 0; j < 16; j++) {
             for (int i = 0; i < 32; i++) {
-                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 16, j * 16));
-                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 16, j * 16 + 15));
-                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 16 + 15, j * 16));
-                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 16 + 15, j * 16 + 15));
+                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 32, j * 32));
+                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 32, j * 32 + 31));
+                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 32 + 31, j * 32));
+                assertEquals(laatat[j][i], testiKentta.selvitaPikselinTyyppi(i * 32 + 31, j * 32 + 31));
             }
         }
     }
@@ -56,9 +56,9 @@ public class KenttaTest {
     @Test
     public void testPoistaPiste() {
         for (int i = 0; i < 16; i++) {
-            testiKentta.setLaatta(i, 1, 2);
-            testiKentta.poistaPiste(i*16, 16);
-            assertEquals(testiKentta.selvitaPikselinTyyppi(i*16, 16), 0);
+            testiKentta.setLaatta(i, 1, 50);
+            testiKentta.poistaPiste(i*32, 32);
+            assertEquals(testiKentta.selvitaPikselinTyyppi(i*32, 32), 0);
         }
         
     }
@@ -67,8 +67,8 @@ public class KenttaTest {
     public void testLuoTeleportti() {
         for (int i = 0; i < 16; i++) {
             testiKentta.luoTeleportti(i, 14, i, 0);
-            assertEquals(testiKentta.getLaatta(i, 14), 4);
-            assertEquals(testiKentta.getLaatta(i, 0), 4);
+            assertEquals(testiKentta.getLaatta(i, 14), 72);
+            assertEquals(testiKentta.getLaatta(i, 0), 72);
         } 
     }
 

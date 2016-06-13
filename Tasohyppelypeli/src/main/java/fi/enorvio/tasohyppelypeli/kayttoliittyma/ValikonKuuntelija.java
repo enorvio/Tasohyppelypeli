@@ -23,15 +23,16 @@ import java.util.ArrayList;
  */
 public class ValikonKuuntelija implements ActionListener {
 
+    private JFrame valikko;
     private JButton uusiPeli;
-    private JButton lataaPeli;
     private JButton lopeta;
     private JButton korkeimmatPisteet;
     
     
-    public ValikonKuuntelija(JButton uusiPeli, JButton lataaPeli, JButton korkeimmatPisteet, JButton lopeta) {
+    
+    public ValikonKuuntelija(JFrame valikko, JButton uusiPeli, JButton korkeimmatPisteet, JButton lopeta) {
+        this.valikko = valikko;
         this.uusiPeli = uusiPeli;
-        this.lataaPeli = lataaPeli;
         this.lopeta = lopeta;
         this.korkeimmatPisteet = korkeimmatPisteet;
     }
@@ -43,17 +44,17 @@ public class ValikonKuuntelija implements ActionListener {
             if (ae.getSource() == uusiPeli) {
                 System.out.println("jee");
                 String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
-                Logiikka logiikka = new Logiikka(kentanNimet);
-                PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(logiikka);
+                Logiikka logiikka = new Logiikka(kentanNimet);                
                 System.out.println("uusi peli");
                 JFrame ikkuna = new JFrame("Peli");
                 GridLayout asettelija = new GridLayout(2, 1);
                 ikkuna.setLayout(asettelija);
+                PeliIkkuna esimerkkiPeliIkkuna = new PeliIkkuna(logiikka, ikkuna);
                 ikkuna.add(esimerkkiPeliIkkuna);
                 JLabel kentta = esimerkkiPeliIkkuna.getStatuspaneeli();
                 ikkuna.add(kentta);
                 ikkuna.setPreferredSize(new Dimension(1050, 1050));
-                ikkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                ikkuna.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 ikkuna.pack();
                 ikkuna.setVisible(true);
             }
@@ -68,10 +69,13 @@ public class ValikonKuuntelija implements ActionListener {
                     pisteIkkuna.add(pistekentta);
                 }
                 pisteIkkuna.setPreferredSize(new Dimension(1050, 1050));
-                pisteIkkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                pisteIkkuna.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 pisteIkkuna.pack();
                 pisteIkkuna.setVisible(true);
                 }
+            if (ae.getSource() == lopeta) {
+                valikko.dispose();
+            }
             
         } catch (Exception e) {
             System.out.println(e);

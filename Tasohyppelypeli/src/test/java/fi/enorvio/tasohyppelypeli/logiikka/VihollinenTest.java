@@ -70,5 +70,13 @@ public class VihollinenTest {
         }
 
     }
+    
+    @Test 
+    public void testKaanny() {
+        testiVihollinen.kaanny();
+        assertEquals(testiVihollinen.getSuunnat()[testiVihollinen.getReitinOsuus()],'r');
+        assertEquals(testiVihollinen.getDy(), 0);
+        assertEquals(testiVihollinen.getDx(), 1);
+    }
 
 }

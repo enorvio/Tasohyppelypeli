@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="fi.enorvio.tasohyppelypeli.logiikka.VihollinenTest" time="0.031" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="fi.enorvio.tasohyppelypeli.logiikka.VihollinenTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_05\jre\bin"/>
@@ -65,4 +65,5 @@
   </properties>
   <testcase classname="fi.enorvio.tasohyppelypeli.logiikka.VihollinenTest" name="testLiiku" time="0"/>
   <testcase classname="fi.enorvio.tasohyppelypeli.logiikka.VihollinenTest" name="testToString" time="0"/>
+  <testcase classname="fi.enorvio.tasohyppelypeli.logiikka.VihollinenTest" name="testKaanny" time="0"/>
 </testsuite>

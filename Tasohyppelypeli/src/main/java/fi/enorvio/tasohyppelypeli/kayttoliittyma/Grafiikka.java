@@ -21,7 +21,7 @@ public class Grafiikka {
     public Grafiikka() {
         this.lukija = new Lukija();
         this.kuvat = new HashMap<Integer, BufferedImage>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 110; i++) {
             String tiedostonimi = "src/main/resources/" + i + ".png";
             this.kuvat.put(i, this.lukija.lataaKuva(tiedostonimi));            
         }

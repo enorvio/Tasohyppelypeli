@@ -57,20 +57,32 @@ public class PelaajaTest {
         while(testiPelaaja.onElossa()) {
             testiPelaaja.liiku();
         }
-        assertEquals(testiPelaaja.getY(), 240);
+        assertEquals(testiPelaaja.getY(), 479);
         assertEquals(testiPelaaja.getElamat(), 8);
     }
     
     @Test
     public void PelaajaOsaaTeleportata() {
         testiKentta.luoTeleportti(15, 15, 3, 3);
-        testiPelaaja.setX(15*16);
-        testiPelaaja.setY(15*16);
+        testiPelaaja.setX(15*32);
+        testiPelaaja.setY(15*32);
         testiPelaaja.liiku();
-        assertEquals(testiPelaaja.getX(), 64);
-        assertEquals(testiPelaaja.getY(), 48);
+        assertEquals(testiPelaaja.getX(), 128);
+        assertEquals(testiPelaaja.getY(), 96);
         
     }
     
+    @Test
+    public void PelaajaEiTeleporttaaHetiTakaisin() {
+        testiKentta.luoTeleportti(15, 15, 3, 3);
+        testiPelaaja.setX(15*32);
+        testiPelaaja.setY(15*32);
+        for (int i = 0; i < 600; i++) {
+            testiPelaaja.liiku();
+        }
+        assertEquals(testiPelaaja.getX(), 128);
+        assertEquals(testiPelaaja.getY(), 448);
+        
+    }
    
 }

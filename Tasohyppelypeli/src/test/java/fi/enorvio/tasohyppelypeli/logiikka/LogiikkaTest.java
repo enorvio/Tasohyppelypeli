@@ -58,7 +58,7 @@ public class LogiikkaTest {
         for (int i = 0; i<500; i++) {
             testiLogiikka.paivita();
         }
-        assertEquals(testiLogiikka.getPelaaja().getY(), 224);
+        assertEquals(testiLogiikka.getPelaaja().getY(), 416);
     }
     
 }

@@ -31,7 +31,6 @@ public class Kayttoliittyma implements Runnable {
     private JLabel statuspaneeli;
     private GridLayout asettelija;
     private JButton uusiPeli;
-    private JButton lataaPeli;
     private JButton lopeta;
     private JButton korkeimmatPisteet;
 
@@ -42,7 +41,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         ikkuna = new JFrame("Valikko");
-        ikkuna.setPreferredSize(new Dimension(300, 200));
+        ikkuna.setPreferredSize(new Dimension(600, 400));
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(ikkuna.getContentPane());
@@ -58,17 +57,13 @@ public class Kayttoliittyma implements Runnable {
         paneeli.setFocusable(true);
         JButton nappi1 = new JButton("New game");
         paneeli.add(nappi1);
-        JButton nappi2 = new JButton("Load");
-        paneeli.add(nappi2);
         JButton nappi3 = new JButton("High score");
         paneeli.add(nappi3);
         JButton nappi4 = new JButton("Quit");
         paneeli.add(nappi4);
         container.add(paneeli);
-        //kuuntelija = new valikonKuuntelija(tekstikentta, syotekentta, nappi1, nappi2, nappi3);
-        ValikonKuuntelija kuuntelija = (new ValikonKuuntelija(nappi1, nappi2, nappi3, nappi4));
+        ValikonKuuntelija kuuntelija = (new ValikonKuuntelija(ikkuna, nappi1, nappi3, nappi4));
         nappi1.addActionListener(kuuntelija);
-        nappi2.addActionListener(kuuntelija);
         nappi3.addActionListener(kuuntelija);
         nappi4.addActionListener(kuuntelija);
 

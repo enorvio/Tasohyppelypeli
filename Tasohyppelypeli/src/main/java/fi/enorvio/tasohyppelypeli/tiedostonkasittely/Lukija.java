@@ -6,6 +6,7 @@
 package fi.enorvio.tasohyppelypeli.tiedostonkasittely;
 
 import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
+import fi.enorvio.tasohyppelypeli.logiikka.Kentta;
 import java.util.*;
 import java.io.*;
 import fi.enorvio.tasohyppelypeli.*;
@@ -28,10 +29,11 @@ public class Lukija {
     private Scanner tiedostonLukija;
     private File tiedosto;
 
-    public void lataaKentta(String tiedostonNimi) {
+    public Kentta lataaKentta(String tiedostonNimi) {
         this.viholliset = new ArrayList<Vihollinen>();
         this.tiedostonNimi = tiedostonNimi;
         this.laatat = new int[16][32];
+        boolean onTeleportteja = false;
         try {
             this.tiedosto = new File(this.tiedostonNimi);
             this.tiedostonLukija = new Scanner(this.tiedosto);
@@ -46,12 +48,30 @@ public class Lukija {
             }
             while (this.tiedostonLukija.hasNextLine()) {
                 String rivi = this.tiedostonLukija.nextLine();
+                if (rivi.equals("teleportit")){
+                    onTeleportteja = true;
+                    break;
+                }
                 this.viholliset.add(lataaVihollinen(rivi));
             }
+            Kentta kentta = new Kentta(this.laatat, this.viholliset);
+            if (onTeleportteja) {
+                while (this.tiedostonLukija.hasNextLine()) {
+                    String rivi = this.tiedostonLukija.nextLine();
+                    String[] osat = rivi.split(":");
+                    int alkux = (int) Integer.parseInt(osat[0]);
+                    int alkuy = (int) Integer.parseInt(osat[1]);
+                    int loppux = (int) Integer.parseInt(osat[2]);
+                    int loppuy = (int) Integer.parseInt(osat[3]);
+                    kentta.luoTeleportti(alkux, alkuy, loppux, loppuy);
+                }
+            }
             this.tiedostonLukija.close();
+            return kentta;
         } catch (Exception e) {
             System.out.println("Tiedostoa ei löydy.");
         }
+        return null;
     }
 
     public Vihollinen lataaVihollinen(String rivi) {
@@ -145,7 +165,7 @@ public class Lukija {
         }
         return mjono;
     }
-    
+   
     
 
 }
