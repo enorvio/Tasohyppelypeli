@@ -9,14 +9,22 @@ Pelaaja
 * spriten liikuttaminen näppäimistön avulla
 * pelin lopettaminen
 
-**Määrittelyvaiheen luokkakaavio**
+**Luokkakaavio**
 
 ![Alt text][id1]
 
-[id1]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_1.png  
+[id1]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_3.png  
 
-**Luokkakaavio**
+**Sekvenssikaavioita**
 
 ![Alt text][id2]
 
-[id2]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/luokkakaavio_2.png  
+[id2]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/sekvenssikaavio1.png  
+
+![Alt text][id3]
+
+[id3]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/sekvenssikaavio2.png 
+
+![Alt text][id4]
+
+[id4]: https://github.com/enorvio/Tasohyppelypeli/blob/master/dokumentaatio/sekvenssikaavio3.png 
