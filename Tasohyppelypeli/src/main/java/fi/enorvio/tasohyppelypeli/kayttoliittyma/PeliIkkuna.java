@@ -23,7 +23,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
- * Luokka sisÃ¤ltÃ¤Ã¤ itse peli-ikkunan ja sen grafiikan sekÃ¤ nÃ¤ppÃ¤inkontrollien
+ * Luokka sisältää itse peli-ikkunan ja sen grafiikan sekä näppäinkontrollien
  * kuuntelun.
  */
 public class PeliIkkuna extends JPanel implements ActionListener {

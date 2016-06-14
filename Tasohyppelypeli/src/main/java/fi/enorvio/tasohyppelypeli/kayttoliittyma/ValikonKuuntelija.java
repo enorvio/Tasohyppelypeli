@@ -42,7 +42,6 @@ public class ValikonKuuntelija implements ActionListener {
 
         try {
             if (ae.getSource() == uusiPeli) {
-                System.out.println("jee");
                 String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
                 Logiikka logiikka = new Logiikka(kentanNimet);                
                 System.out.println("uusi peli");

@@ -14,6 +14,10 @@ import fi.enorvio.tasohyppelypeli.tiedostonkasittely.Lukija;
  *
  * @author tabby
  */
+
+/**
+ * Luokka sisältää HashMapin, jossa säilytetään pelin tarvitsemia BufferedImage-kuvia, sekä metodin niiden palauttamiseen avaimen perusteella.
+ */
 public class Grafiikka {
     private HashMap<Integer, BufferedImage> kuvat;
     private Lukija lukija;
@@ -27,6 +31,12 @@ public class Grafiikka {
         }
     }
     
+    /**
+     * Metodi palauttaa kuvan sen numerosarjan perusteella.
+     *
+     * @param kuvanNumero kuvaa vastaava tunnusnumero
+     * @return numeroa vastaava BufferedImage-olio
+     */     
     public BufferedImage haeKuva(int kuvanNumero) {
         return this.kuvat.get(kuvanNumero);
     }

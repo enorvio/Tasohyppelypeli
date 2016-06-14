@@ -168,4 +168,31 @@ public class HahmoTest {
         }
     }
     
+    @Test
+    public void testPelaajaOnIlmassa() {
+        testiHahmo.setX(1);
+        testiHahmo.setY(1);
+        testiHahmo.setDy(1);
+        testiHahmo.setTormaaEsteisiin(true);
+        while (testiHahmo.pelaajaOnIlmassa()) {
+            testiHahmo.liiku();
+        }
+        assertEquals(testiHahmo.getY(), 448);
+    }
+    
+//    @Test
+//    public void testYlhaallaOnEste() {
+//        testiHahmo.setX(1);
+//        testiHahmo.setY(448);
+//        testiHahmo.setDy(-1);
+//        testiHahmo.setTormaaEsteisiin(true);
+//        testiKentta.setLaatta(0, 0, 1);
+//        while (!testiHahmo.ylhaallaOnEste()) {
+//            testiHahmo.liiku();
+//            
+//            System.out.println(testiHahmo.getY());
+//        }
+//        assertEquals(testiHahmo.getY(), 32);
+//    }
+//    
 }

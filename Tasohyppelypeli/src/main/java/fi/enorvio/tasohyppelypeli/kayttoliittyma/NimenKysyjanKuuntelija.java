@@ -16,6 +16,10 @@ import fi.enorvio.tasohyppelypeli.tiedostonkasittely.Lukija;
  *
  * @author tabby
  */
+
+/**
+ * Luokka sisältää NimenKysyjä-luokan ActionEventien (tekstikentän syöte ja JButtonin klikkaaminen) kuuntelijan.
+ */
 public class NimenKysyjanKuuntelija implements ActionListener {
     
     private JButton nappi;

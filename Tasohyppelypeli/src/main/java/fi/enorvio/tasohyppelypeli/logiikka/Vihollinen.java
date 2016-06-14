@@ -66,7 +66,7 @@ public class Vihollinen extends Hahmo {
         return mjono;
     }
 
-    public void liiku() {
+    @Override public void liiku() {
         if ((this.suunnat[reitinOsuus] == 'd' && this.getY() < this.kaannospisteet[reitinOsuus]) || ((this.suunnat[reitinOsuus] == 'u' && this.getY() > this.kaannospisteet[reitinOsuus]) || (this.suunnat[reitinOsuus] == 'l' && this.getX() > this.kaannospisteet[reitinOsuus]) || (this.suunnat[reitinOsuus] == 'r' && this.getX() < this.kaannospisteet[reitinOsuus]))) {
             super.liiku();
         } else {
@@ -75,6 +75,10 @@ public class Vihollinen extends Hahmo {
 
     }
 
+    /**
+     * Metodi päivittää reittinsä käännöskohdassa olevan Vihollisen nopeustiedot ja tiedon siitä millä reitinpätkällä Vihollinen on. 
+     *
+     */
     public void kaanny() {
         if (reitinOsuus < this.suunnat.length - 1) {
             this.reitinOsuus++;

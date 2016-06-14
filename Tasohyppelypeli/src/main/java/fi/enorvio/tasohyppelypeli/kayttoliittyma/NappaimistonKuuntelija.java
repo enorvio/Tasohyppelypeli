@@ -14,25 +14,31 @@ import java.io.*;
  *
  * @author tabby
  */
+
+/**
+ * Luokka implementoi KeyListener-interfacen ja toimii näppäinkontrollien
+ * kuuntelijana pelin aikana, päivittäen pelaajan nopeustietoja ja kommunikoi
+ * PeliIkkuna-luokan kanssa ja ohjaa pelaajan animointia.
+ */
 public class NappaimistonKuuntelija implements KeyListener {
-    
+
     private int pelaajanAnimaationTila;
     private Pelaaja pelaaja;
-    
+
     public NappaimistonKuuntelija(Pelaaja pelaaja) {
         this.pelaajanAnimaationTila = 1;
         this.pelaaja = pelaaja;
     }
-    
+
     @Override
     public void keyTyped(KeyEvent key) {
     }
 
     @Override
     public void keyPressed(KeyEvent key) {
-        
+
         int code = key.getKeyCode();
-        
+
         if (code == KeyEvent.VK_LEFT) {
             if (this.pelaajanAnimaationTila == -1) {
                 this.pelaajanAnimaationTila = -2;
@@ -45,7 +51,7 @@ public class NappaimistonKuuntelija implements KeyListener {
             }
             this.pelaaja.setDx(-1);
         }
-        
+
         if (code == KeyEvent.VK_RIGHT) {
             if (this.pelaajanAnimaationTila == 1) {
                 this.pelaajanAnimaationTila = 2;
@@ -58,7 +64,7 @@ public class NappaimistonKuuntelija implements KeyListener {
             }
             this.pelaaja.setDx(1);
         }
-        
+
         if (code == KeyEvent.VK_SPACE) {
             this.pelaaja.hyppaa();
         }
@@ -73,15 +79,15 @@ public class NappaimistonKuuntelija implements KeyListener {
             this.pelaajanAnimaationTila = -1;
             this.pelaaja.setDx(0);
         }
-        
+
         if (code == KeyEvent.VK_RIGHT) {
             this.pelaajanAnimaationTila = 1;
             this.pelaaja.setDx(0);
         }
     }
-    
+
     public int getPelaajanAnimaationTila() {
         return this.pelaajanAnimaationTila;
     }
-    
+
 }

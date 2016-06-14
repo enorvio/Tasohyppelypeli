@@ -13,7 +13,6 @@ import java.util.*;
  *
  * @author tabby
  */
-
 /**
  * Luokka huolehtii olennaisesta pelilogiikasta kuten tasosta toiseen
  * siirtymisestä, tason resetoimisesta ja pelitilanteen päivittämisestä.
@@ -39,6 +38,11 @@ public class Logiikka {
         return this.pelaaja;
     }
 
+    /**
+     * Metodi resetoi kentän pelitilanteen lataamalla kentän uudelleen
+     * tiedostosta, asettaen pelaajan aloitusasemaan.
+     *
+     */
     public void resetoiKentta() {
         this.pelaaja.setX(1);
         this.pelaaja.setY(1);
@@ -46,6 +50,12 @@ public class Logiikka {
         this.pelaaja.setKentta(uusiKentta);
     }
 
+    /**
+     * Metodi tallentaa pelaajan edellisestä kentästä saamat pisteet ja elämät
+     * pelaajan oliomuuttujiin, lataa seuraavan kentän tai lopettaa pelin jos
+     * kenttä oli viimeinen, pelaajan läpäistessä edellisen kentän.
+     *
+     */
     public void seuraavaKentta() {
         this.pelaaja.setPisteet(this.pelaaja.getPisteet() + this.pelaaja.getKentta().getPisteet());
         this.pelaaja.setElamat(this.pelaaja.getElamat() + this.pelaaja.getKentta().getElamat());
@@ -57,10 +67,21 @@ public class Logiikka {
         this.resetoiKentta();
     }
 
+    /**
+     * Metodi ilmoittaa pelin loppumisesta Logiikka.jatkuu -oliomuuttujan
+     * välityksellä.
+     *
+     */
     public void lopetaPeli() {
         this.jatkuu = false;
     }
 
+    /**
+     * Metodi päivittää pelilogiikan tilannetta liikuttaen kaikkia hahmoja
+     * pikselin verran niiden nopeuden perusteella ja ja resetoiden kentän tai
+     * edeten seuraavaan kenttään jos sille on tarvetta..
+     *
+     */
     public void paivita() {
         if (!pelaaja.onElossa()) {
             if (pelaaja.getElamat() > 0) {
@@ -69,7 +90,7 @@ public class Logiikka {
                 this.pelaaja.ela();
             } else {
                 lopetaPeli();
-            }           
+            }
         }
         pelaaja.liiku();
         for (Vihollinen vihollinen : this.pelaaja.getKentta().getViholliset()) {
@@ -82,7 +103,7 @@ public class Logiikka {
             this.seuraavaKentta();
         }
     }
-    
+
     public boolean jatkuu() {
         return this.jatkuu;
     }

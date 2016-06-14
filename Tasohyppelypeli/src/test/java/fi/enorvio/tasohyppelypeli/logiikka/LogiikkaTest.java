@@ -41,6 +41,18 @@ public class LogiikkaTest {
         testiLogiikka.seuraavaKentta();
         assertEquals(testiLogiikka.getPelaaja().getPisteet(), 9);
     }
+    
+    @Test
+    public void testaaEttaElamatPaivittyvatSeuraavaanKenttaan() {
+        testiLogiikka.getPelaaja().getKentta().setLaatta(0, 1, 70);
+        testiLogiikka.getPelaaja().setX(1);
+        testiLogiikka.getPelaaja().setY(1);
+        for (int i = 0; i < 50; i++) {
+            testiLogiikka.paivita();
+        }
+        testiLogiikka.seuraavaKentta();
+        assertEquals(testiLogiikka.getPelaaja().getElamat(), 10);
+    }
 
     @Test
     public void testKuoleminenResetoiKentan() {
@@ -59,6 +71,18 @@ public class LogiikkaTest {
             testiLogiikka.paivita();
         }
         assertEquals(testiLogiikka.getPelaaja().getY(), 416);
+    }
+    
+    @Test
+    public void vihollinenTappaaPelaajan() {
+        testiLogiikka.resetoiKentta();
+        char[] suunnat = {'l', 'r'};
+        int[] kaannospisteet = {1, 1};
+        testiLogiikka.getPelaaja().getKentta().getViholliset().add(new Vihollinen(1, 1, suunnat, kaannospisteet));
+        for(int i = 0; i < 10; i++) {
+            testiLogiikka.paivita();
+        }    
+        assertEquals(testiLogiikka.getPelaaja().getElamat(), 8);
     }
     
 }

@@ -50,6 +50,11 @@ public class Kayttoliittyma implements Runnable {
         ikkuna.setVisible(true);
     }
 
+    /**
+     * Metodi luo aloitusvalikon komponentit, asettaa ne aloitusvalikkoon, luo niille kuuntelijan ja kytkee sen komponentteihin.
+     *
+     * @param container Container-olio, johon komponentit sijoitetaan
+     */ 
     private void luoKomponentit(Container container) {
         GridLayout asettelija = new GridLayout(3, 1);
         container.setLayout(asettelija);

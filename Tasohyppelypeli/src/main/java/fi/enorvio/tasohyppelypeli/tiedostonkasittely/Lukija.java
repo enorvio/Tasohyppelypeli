@@ -29,6 +29,12 @@ public class Lukija {
     private Scanner tiedostonLukija;
     private File tiedosto;
 
+    /**
+     * Metodi lataa tiedostosta kentän ja palauttaa sen valmiina Kentta-oliona.
+     *
+     * @param tiedostonNimi (teksti)tiedoston nimi, josta kenttä ladataan
+     * @return tiedostoon tallennettu kenttä
+     */    
     public Kentta lataaKentta(String tiedostonNimi) {
         this.viholliset = new ArrayList<Vihollinen>();
         this.tiedostonNimi = tiedostonNimi;
@@ -48,7 +54,7 @@ public class Lukija {
             }
             while (this.tiedostonLukija.hasNextLine()) {
                 String rivi = this.tiedostonLukija.nextLine();
-                if (rivi.equals("teleportit")){
+                if (rivi.equals("teleportit")) {
                     onTeleportteja = true;
                     break;
                 }
@@ -74,6 +80,12 @@ public class Lukija {
         return null;
     }
 
+    /**
+     * Metodi luo Vihollisen String-esityksen perusteella.
+     *
+     * @param rivi luotavan vihollisen tiedot Stringinä
+     * @return valmis Vihollinen
+     */    
     public Vihollinen lataaVihollinen(String rivi) {
         String[] osat = rivi.split(",");
         int x = Integer.parseInt(osat[0]);
@@ -99,6 +111,12 @@ public class Lukija {
         return this.laatat;
     }
     
+    /**
+     * Metodi lataa kuvan kuvatiedostosta.
+     *
+     * @param kuvanTiedostonimi kuvatiedoston nimi, josta kuva ladataan
+     * @return kuva BufferedImagena
+     */    
     public BufferedImage lataaKuva(String kuvanTiedostonimi) {
         BufferedImage kuva = null;
         try {
@@ -107,8 +125,13 @@ public class Lukija {
             System.out.println("jotain meni vituiks kuvan lataamisessa " + kuvanTiedostonimi);
         }
         return kuva;
-    } 
-    
+    }
+
+    /**
+     * Metodi lukee korkeimmat pisteet highscore.txt-tiedostosta ja palauttaa ne ArrayListinä.
+     *
+     * @return Pistetilastot merkkijonoina ArrayListissä
+     */    
     public ArrayList<String> lataaPisteet() {
         ArrayList<String> pisteet = new ArrayList<String>();
         try {
@@ -117,27 +140,38 @@ public class Lukija {
             while (this.tiedostonLukija.hasNextLine()) {
                 String rivi = this.tiedostonLukija.nextLine();
                 System.out.println(rivi);
-                pisteet.add(rivi);               
+                pisteet.add(rivi);
             }
         } catch (Exception e) {
             System.out.println("tiedostoa ei löydy");
         }
         return pisteet;
     }
-    
-    public void kirjoitaPisteet (ArrayList<String> pisteet) {
+
+     /**
+     * Metodi kirjoittaa ArrayListinä annetut pistetilastot highscore.txt-tiedostoon.
+     *
+     * @param pisteet Pistetilastot merkkijonoina ArrayListissä
+     */ 
+    public void kirjoitaPisteet(ArrayList<String> pisteet) {
         try {
-           FileWriter kirjoittaja = new FileWriter("src/main/resources/highscore.txt");
+            FileWriter kirjoittaja = new FileWriter("src/main/resources/highscore.txt");
             for (String piste : pisteet) {
                 kirjoittaja.write(piste + "\n");
             }
-            kirjoittaja.close(); 
+            kirjoittaja.close();
         } catch (IOException e) {
             System.out.println("jotain meni vituiks pisteiden kirjoittamisessa");
         }
-        
+
     }
-    
+
+    /**
+     * Metodi tarkistaa, pääsevätkö annetut pisteet top10:een ja jos ne pääsevät, päivittää ne oikealle paikalleen highscore.txt-tiedostoon.
+     *
+     * @param nimi pelaajan nimi
+     * @param pisteet pelaajan saamat pisteet
+     */ 
     public void tallennaPisteet(String nimi, int pisteet) {
         ArrayList<String> nykyisetPisteet = this.lataaPisteet();
         int pistesija = -1;
@@ -147,25 +181,13 @@ public class Lukija {
             if (pisteet > Integer.parseInt(osat[1])) {
                 pistesija = i;
                 break;
-            }      
+            }
         }
         if (pistesija >= 0) {
             nykyisetPisteet.add(pistesija, nimi + ":" + pisteet);
             nykyisetPisteet.remove(nykyisetPisteet.size() - 1);
             kirjoitaPisteet(nykyisetPisteet);
-        }      
-    } 
-    
-    public String pisteetMerkkijonona() {
-        ArrayList<String> nykyisetPisteet = this.lataaPisteet();
-        String mjono = "";
-        for (int i = 1; i <= 10; i++) {
-            String[] osat = nykyisetPisteet.get(i - 1).split(":");
-            mjono += i + ". " + osat[0] + ": " + osat[1] + "\n";
         }
-        return mjono;
     }
-   
-    
 
 }

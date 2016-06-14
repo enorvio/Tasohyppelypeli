@@ -7,6 +7,7 @@ package fi.enorvio.tasohyppelypeli.logiikka;
 
 import fi.enorvio.tasohyppelypeli.logiikka.Kentta;
 import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
+import fi.enorvio.tasohyppelypeli.logiikka.Pelaaja;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -79,4 +80,6 @@ public class VihollinenTest {
         assertEquals(testiVihollinen.getDx(), 1);
     }
 
+    
+   
 }

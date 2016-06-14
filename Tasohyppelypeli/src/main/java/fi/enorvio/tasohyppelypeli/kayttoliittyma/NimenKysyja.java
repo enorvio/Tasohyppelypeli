@@ -15,26 +15,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-
 /**
  *
  * @author tabby
  */
+/**
+ * Luokka sisältää ikkunan, joka kysyy pelin jälkeen pelaajalta tämän nimeä.
+ */
 public class NimenKysyja implements Runnable {
-    
+
     private JFrame ikkuna;
     private GridLayout asettelija;
     private JButton ok;
     private int pisteet;
     private NimenKysyjanKuuntelija kuuntelija;
-    
+
     public NimenKysyja(int pisteet) {
         this.pisteet = pisteet;
         this.kuuntelija = null;
     }
-    
-    
-        @Override
+
+    @Override
     public void run() {
         ikkuna = new JFrame("Valikko");
         ikkuna.setPreferredSize(new Dimension(300, 200));
@@ -45,7 +46,13 @@ public class NimenKysyja implements Runnable {
         ikkuna.pack();
         ikkuna.setVisible(true);
     }
+
     
+    /**
+     * Metodi sijoittaa Nimenkysyjään kuuluvat komponentit paikoilleen Containeriin, luo niille kuuntelijan ja kytkee sen komponentteihin.
+     *
+     * @param Container Container-olio johon komponentit sijoitetaan, käytännössä Nimenkysyjän ikkunan ContentPane
+     */
     private void luoKomponentit(Container container) {
         GridLayout asettelija = new GridLayout(3, 1);
         container.setLayout(asettelija);
@@ -62,7 +69,7 @@ public class NimenKysyja implements Runnable {
         nappi.addActionListener(kuuntelija);
 
     }
-    
+
     public String getNimi() {
         return this.kuuntelija.getNimi();
     }

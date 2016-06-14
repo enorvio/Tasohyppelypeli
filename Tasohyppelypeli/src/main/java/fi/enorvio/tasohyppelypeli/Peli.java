@@ -23,14 +23,16 @@ import fi.enorvio.tasohyppelypeli.logiikka.Logiikka;
  */
 public class Peli {
 
-    public static int pisteet = 0;
-    public static int elamat = 9;
-
+    /**
+     * Metodi on main-metodi ja käynnistää pelin luomalla ja avaamalla uuden
+     * aloitusvalikon.
+     *
+     */
     public static void main(String[] args) {
 
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
 
-    }  
+    }
 
 }

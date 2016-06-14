@@ -62,6 +62,25 @@ public class KenttaTest {
         }
         
     }
+    
+    @Test
+    public void poistaPisteEiTeeMitaanJosLaattaEiOlePiste() {
+        for (int i = 0; i < 16; i++) {
+            testiKentta.setLaatta(i, 1, 3);
+            testiKentta.poistaPiste(i*32, 32);
+            assertEquals(testiKentta.selvitaPikselinTyyppi(i*32, 32), 3);
+        }
+        for (int i = 0; i < 16; i++) {
+            testiKentta.setLaatta(i, 1, 0);
+        }
+    }
+    
+    @Test
+    public void poistaPistePoistaaElaman() {
+        testiKentta.setLaatta(1, 1, 70);
+        testiKentta.poistaPiste(37, 37);
+        assertEquals(testiKentta.getElamat(), 1);
+    }
 
     @Test
     public void testLuoTeleportti() {

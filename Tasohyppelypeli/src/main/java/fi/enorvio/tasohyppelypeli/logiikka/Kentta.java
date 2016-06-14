@@ -67,7 +67,7 @@ public class Kentta {
     public int getElamat() {
         return this.elamat;
     }
-    
+
     public int getLeveys() {
         return this.leveys;
     }
@@ -84,28 +84,57 @@ public class Kentta {
         this.laatat[y][x] = arvo;
     }
 
+    /**
+     * Metodi kertoo millaiseen laattaan annettu pikseli kuuluu.
+     *
+     * @param x pikselin x-koordinaatti
+     * @param y pikselin y-koordinaatti
+     * @return laatan tyyppi kokonaislukuna (numerot 0-110)
+     */
     public int selvitaPikselinTyyppi(int x, int y) {
         int sarake = x / 32;
         int rivi = y / 32;
         return this.laatat[rivi][sarake];
     }
 
+    /**
+     * Metodi kertoo kuuluuko annettu pikseli kiinteään laattaan tai vasempaan
+     * tai yläreunaan.
+     *
+     * @param x pikselin x-koordinaatti
+     * @param y pikselin y-koordinaatti
+     * @return boolean: onko laatta kiinteä
+     */
     public boolean pikseliKuuluuEsteeseen(int x, int y) {
         int tyyppi = selvitaPikselinTyyppi(x, y);
-        if (tyyppi !=0 && tyyppi < 50) {
+        if (tyyppi != 0 && tyyppi < 50) {
             return true;
         }
         return false;
     }
-    
+
+    /**
+     * Metodi kertoo kuuluuko annettu pikseli johonkin teleporttiin.
+     *
+     * @param x pikselin x-koordinaatti
+     * @param y pikselin y-koordinaatti
+     * @return boolean: kuuluuko pikseli teleporttiin
+     */
     public boolean pikseliKuuluuTeleporttiin(int x, int y) {
         int tyyppi = selvitaPikselinTyyppi(x, y);
-        if (tyyppi >71 && tyyppi <= 73) {
+        if (tyyppi > 71 && tyyppi <= 73) {
             return true;
         }
         return false;
     }
-    
+
+    /**
+     * Metodi poimii pelaajalle pisteen annetusta koordinaatista, kasvattaen
+     * pelaajan pistesaldoa ja poistaen pisteen kentästä.
+     *
+     * @param x pikselin x-koordinaatti
+     * @param y pikselin y-koordinaatti
+     */
     public void poistaPiste(int x, int y) {
         int tyyppi = selvitaPikselinTyyppi(x, y);
         int sarake = x / 32;
@@ -125,20 +154,27 @@ public class Kentta {
             } else if (tyyppi == 66) {
                 this.pisteet += 50;
             } else if (tyyppi == 67) {
-               this.pisteet += 100; 
+                this.pisteet += 100;
             } else if (tyyppi == 68) {
-               this.pisteet += 1000; 
+                this.pisteet += 1000;
             } else if (tyyppi == 69) {
-               this.pisteet += 10000; 
+                this.pisteet += 10000;
             } else if (tyyppi == 70) {
-               this.elamat++;
+                this.elamat++;
             } else if (tyyppi == 71) {
-               this.elamat += 10;
+                this.elamat += 10;
             }
         }
-
     }
 
+    /**
+     * Metodi luo kenttään uuden teleportin.
+     *
+     * @param alkux teleportin alkupään x-koordinaatti
+     * @param alkuy teleportin alkupään y-koordinaatti
+     * @param loppux teleportin loppupään x-koordinaatti
+     * @param loppuy teleportin loppupään y-koordinaatti
+     */
     public void luoTeleportti(int alkux, int alkuy, int loppux, int loppuy) {
         int[] alku = {alkux, alkuy};
         int[] loppu = {loppux, loppuy};
@@ -148,12 +184,13 @@ public class Kentta {
         this.setLaatta(loppux, loppuy, 72);
     }
 
-    public void tulostaTeleportit() {
-        for (int[] alku : this.teleportit.keySet()) {
-            System.out.println("alku: " + alku[0] + ", " + alku[1] + ", loppu: " + this.teleportit.get(alku)[0] + ", " + this.teleportit.get(alku)[1]);
-        }
-    }
-
+    /**
+     * Metodi kertoo missä teleportin toinen pää on, kun sille annetaan
+     * parametrina ensimmäisen pään koordinaatit.
+     *
+     * @param alku teleportin alkupään koordinaatit
+     * @return teleportin loppupään koordinaatit (2-paikkainen taulukko)
+     */
     public int[] getTeleportinToinenPaa(int[] alku) {
         for (int[] taulukko : this.teleportit.keySet()) {
             if (Arrays.equals(taulukko, alku)) {
