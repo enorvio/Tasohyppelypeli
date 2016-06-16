@@ -68,6 +68,12 @@ public class NappaimistonKuuntelija implements KeyListener {
         if (code == KeyEvent.VK_SPACE) {
             this.pelaaja.hyppaa();
         }
+        
+        if (code == KeyEvent.VK_Q) {
+            this.pelaaja.setElamat(-1);
+            this.pelaaja.kuole();
+        }
+        
     }
 
     @Override

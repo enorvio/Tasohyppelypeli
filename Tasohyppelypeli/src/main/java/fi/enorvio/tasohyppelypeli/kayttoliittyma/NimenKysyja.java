@@ -65,7 +65,7 @@ public class NimenKysyja implements Runnable {
         paneeli.add(teksti);
         container.add(syotekentta);
         container.add(paneeli);
-        this.kuuntelija = (new NimenKysyjanKuuntelija(this.pisteet, nappi, syotekentta));
+        this.kuuntelija = (new NimenKysyjanKuuntelija(this.ikkuna, this.pisteet, nappi, syotekentta));
         nappi.addActionListener(kuuntelija);
 
     }

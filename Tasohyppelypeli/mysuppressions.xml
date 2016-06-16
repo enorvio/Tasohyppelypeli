@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<suppressions>
+    <suppress files="fi.enorvio.tasohyppelypeli.kayttoliittyma.Grafiikka.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.enorvio.tasohyppelypeli.kayttoliittyma.Kayttoliittyma.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.enorvio.tasohyppelypeli.kayttoliittyma.NappaimistonKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.enorvio.tasohyppelypeli.kayttoliittyma.NimenKysyja.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.enorvio.tasohyppelypeli.kayttoliittyma.NimenKysyjanKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.enorvio.tasohyppelypeli.kayttoliittyma.PeliIkkuna.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.enorvio.tasohyppelypeli.kayttoliittyma.ValikonKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.enorvio.tasohyppelypeli.tiedostonkasittely.Lukija.java" checks="[a-zA-Z0-9]*"/>
+</suppressions>

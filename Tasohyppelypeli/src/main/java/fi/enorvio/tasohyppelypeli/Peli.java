@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import fi.enorvio.tasohyppelypeli.kayttoliittyma.*;
 import javax.swing.SwingUtilities;
 import fi.enorvio.tasohyppelypeli.logiikka.Logiikka;
+import java.util.HashMap;
 
 /**
  * Luokka sisältää vain main-metodin.
@@ -27,6 +28,7 @@ public class Peli {
      * Metodi on main-metodi ja käynnistää pelin luomalla ja avaamalla uuden
      * aloitusvalikon.
      *
+     * @param args argumentit
      */
     public static void main(String[] args) {
 

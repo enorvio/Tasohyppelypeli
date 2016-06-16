@@ -31,7 +31,7 @@ public class PeliIkkuna extends JPanel implements ActionListener {
     public JLabel statuspaneeli;
     public BufferedImage kuva;
     private Pelaaja pelaaja;
-    public final static int INTERVAL = 10;
+    public final static int INTERVAL = 50;
     private Timer timer;
     private Logiikka logiikka;
     private Grafiikka grafiikka;
@@ -87,7 +87,7 @@ public class PeliIkkuna extends JPanel implements ActionListener {
             this.statuspaneeli.setText("Lives: " + (this.pelaaja.getElamat() + this.pelaaja.getKentta().getElamat()) + " Points: " + (this.pelaaja.getPisteet() + this.pelaaja.getKentta().getPisteet()));
         } else {
             this.timer.stop();
-            System.out.println("game over");
+            this.ikkuna.dispose();
             NimenKysyja nimenkysyja = new NimenKysyja(this.logiikka.getPelaaja().getPisteet());
             SwingUtilities.invokeLater(nimenkysyja);
         } 

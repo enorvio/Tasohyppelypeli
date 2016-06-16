@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fi.enorvio.tasohyppelypeli.logiikka;
 
 /**
@@ -14,9 +10,8 @@ import java.util.*;
 import java.io.*;
 
 /**
- * Luokka tarjoaa toiminnallisuuden tasohyppelypelin yksittäisen tason luomiseen
- * ja tiedon saamiseen sen kustakin laatasta (tile), vihollisesta ja
- * teleportista.
+ * Luokka tarjoaa toiminnallisuuden tasohyppelypelin tason luomiseen ja tiedon
+ * saamiseen sen kustakin laatasta, vihollisesta ja teleportista.
  */
 public class Kentta {
 
@@ -98,8 +93,7 @@ public class Kentta {
     }
 
     /**
-     * Metodi kertoo kuuluuko annettu pikseli kiinteään laattaan tai vasempaan
-     * tai yläreunaan.
+     * Metodi kertoo kuuluuko pikseli kiinteään laattaan tai reunaan.
      *
      * @param x pikselin x-koordinaatti
      * @param y pikselin y-koordinaatti
@@ -129,8 +123,7 @@ public class Kentta {
     }
 
     /**
-     * Metodi poimii pelaajalle pisteen annetusta koordinaatista, kasvattaen
-     * pelaajan pistesaldoa ja poistaen pisteen kentästä.
+     * Metodi poimii pelaajalle pisteen annetusta koordinaatista.
      *
      * @param x pikselin x-koordinaatti
      * @param y pikselin y-koordinaatti
@@ -185,8 +178,7 @@ public class Kentta {
     }
 
     /**
-     * Metodi kertoo missä teleportin toinen pää on, kun sille annetaan
-     * parametrina ensimmäisen pään koordinaatit.
+     * Metodi kertoo missä teleportin toinen pää on.
      *
      * @param alku teleportin alkupään koordinaatit
      * @return teleportin loppupään koordinaatit (2-paikkainen taulukko)

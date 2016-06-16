@@ -122,7 +122,6 @@ public class Lukija {
         try {
             kuva = ImageIO.read(new File(kuvanTiedostonimi));
         } catch (IOException e) {
-            System.out.println("jotain meni vituiks kuvan lataamisessa " + kuvanTiedostonimi);
         }
         return kuva;
     }

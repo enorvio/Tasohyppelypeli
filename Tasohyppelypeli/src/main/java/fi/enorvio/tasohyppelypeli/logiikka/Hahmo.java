@@ -106,7 +106,7 @@ public class Hahmo {
     }
 
     /**
-     * Metodi kertoo onko välittömästi hahmon alareunan alla laatta
+     * Metodi kertoo onko välittömästi hahmon alareunan alla laatta.
      *
      * @return tieto siitä onko hahmo ilmassa totuusarvon muodossa
      */
@@ -126,10 +126,10 @@ public class Hahmo {
      * @return tieto siitä onko hahmon yläreunan yläpuolella laatta totuusarvona
      */
     public boolean ylhaallaOnEste() {
-        if (this.kentta.pikseliKuuluuEsteeseen(x, y)) {
+        if (this.kentta.pikseliKuuluuEsteeseen(x, y - 1)) {
             return true;
         }
-        if (this.kentta.pikseliKuuluuEsteeseen(this.x + 31, this.y)) {
+        if (this.kentta.pikseliKuuluuEsteeseen(this.x + 31, this.y - 1)) {
             return true;
         }
         return false;

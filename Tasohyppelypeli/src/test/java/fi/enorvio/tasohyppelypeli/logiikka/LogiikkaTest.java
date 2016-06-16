@@ -85,4 +85,12 @@ public class LogiikkaTest {
         assertEquals(testiLogiikka.getPelaaja().getElamat(), 8);
     }
     
+    @Test
+    public void testaaLopullistaKuolemista() {
+        testiLogiikka.getPelaaja().setElamat(0);
+        testiLogiikka.getPelaaja().kuole();
+        testiLogiikka.paivita();
+        assertFalse(testiLogiikka.jatkuu());
+    }
+    
 }

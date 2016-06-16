@@ -53,9 +53,10 @@ public class ValikonKuuntelija implements ActionListener {
                 JLabel kentta = esimerkkiPeliIkkuna.getStatuspaneeli();
                 ikkuna.add(kentta);
                 ikkuna.setPreferredSize(new Dimension(1050, 1050));
-                ikkuna.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                ikkuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ikkuna.pack();
                 ikkuna.setVisible(true);
+                uusiPeli.setEnabled(false);
             }
             if (ae.getSource() == korkeimmatPisteet) {
                 JFrame pisteIkkuna = new JFrame("High scores"); 
@@ -73,7 +74,7 @@ public class ValikonKuuntelija implements ActionListener {
                 pisteIkkuna.setVisible(true);
                 }
             if (ae.getSource() == lopeta) {
-                valikko.dispose();
+                System.exit(0);
             }
             
         } catch (Exception e) {
@@ -82,6 +83,7 @@ public class ValikonKuuntelija implements ActionListener {
         }
 
     }
+    
 }
 
 

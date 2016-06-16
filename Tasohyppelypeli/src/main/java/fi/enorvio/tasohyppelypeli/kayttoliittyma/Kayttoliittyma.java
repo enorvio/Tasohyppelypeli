@@ -73,5 +73,6 @@ public class Kayttoliittyma implements Runnable {
         nappi4.addActionListener(kuuntelija);
 
     }
+    
 
 }

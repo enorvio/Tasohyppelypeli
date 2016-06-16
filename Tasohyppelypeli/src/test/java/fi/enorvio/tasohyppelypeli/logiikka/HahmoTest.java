@@ -180,19 +180,17 @@ public class HahmoTest {
         assertEquals(testiHahmo.getY(), 448);
     }
     
-//    @Test
-//    public void testYlhaallaOnEste() {
-//        testiHahmo.setX(1);
-//        testiHahmo.setY(448);
-//        testiHahmo.setDy(-1);
-//        testiHahmo.setTormaaEsteisiin(true);
-//        testiKentta.setLaatta(0, 0, 1);
-//        while (!testiHahmo.ylhaallaOnEste()) {
-//            testiHahmo.liiku();
-//            
-//            System.out.println(testiHahmo.getY());
-//        }
-//        assertEquals(testiHahmo.getY(), 32);
-//    }
-//    
+    @Test
+    public void testYlhaallaOnEste() {
+        testiHahmo.setX(1);
+        testiHahmo.setY(448);
+        testiHahmo.setDy(-1);
+        testiHahmo.setTormaaEsteisiin(true);
+        testiKentta.setLaatta(0, 0, 1);
+        while (!testiHahmo.ylhaallaOnEste()) {
+            testiHahmo.liiku();
+        }
+        assertEquals(testiHahmo.getY(), 32);
+    }
+    
 }

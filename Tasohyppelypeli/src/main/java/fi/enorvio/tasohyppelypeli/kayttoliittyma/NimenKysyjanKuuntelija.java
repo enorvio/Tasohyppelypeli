@@ -22,12 +22,15 @@ import fi.enorvio.tasohyppelypeli.tiedostonkasittely.Lukija;
  */
 public class NimenKysyjanKuuntelija implements ActionListener {
     
+    private JFrame ikkuna;
     private JButton nappi;
     private JTextField syotekentta;
     private String nimi;
     private int pisteet;
     
-    public NimenKysyjanKuuntelija(int pisteet, JButton nappi, JTextField syotekentta) {
+    public NimenKysyjanKuuntelija(JFrame ikkuna, int pisteet, JButton nappi, JTextField syotekentta) {
+        
+        this.ikkuna = ikkuna;
         this.nappi = nappi;
         this.syotekentta = syotekentta;
         this.nimi = "";
@@ -43,6 +46,7 @@ public class NimenKysyjanKuuntelija implements ActionListener {
                 System.out.println(this.nimi);
                 Lukija lukija = new Lukija();
                 lukija.tallennaPisteet(this.nimi, this.pisteet);
+                ikkuna.dispose();
             }
         } catch (Exception e) {
             System.out.println(e);
