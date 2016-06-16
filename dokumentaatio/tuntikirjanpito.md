@@ -17,3 +17,4 @@ Päivä | Tunnit | Kuvaus
 13.6.2016 | 5h | Ikkunoiden sulkemis/avaamisjärjestys fiksattu. Asetin taustakuvan ensimmäiseen kenttään ja tein ensimmäisen kentän varsinaiseen peliin. Korjasin testit, jotka menivät rikki taas laattakoon suurentamisen seurauksena. Piirsin luokkakaavion uudelleen sekä kolme sekvenssikaaviota.   
 14.6.2016 | 2h | Kirjoitin kaikkien luokkien ja julkisten metodien Javadocit ja tein 4 lisää testiä. 
 15.6.2016 | 1,5h | Kävin pajassa. Sain ohjeeksi ettei pitäisi tehdä enää uusia ominaisuuksia, teleportit voisi siirtää omaksi luokakseen ja teleportin lukeminen tiedostosta voisi olla oma metodinsa Lukijassa. Olisi kiva tietää miksi peli on niin hidas laitoksen koneella. Muutin pari juttua GUIssa ja tein 2 uutta testiä. 
+16.6.2016 | 1h | Tappelin pluginien ja Checkstylen Javadoc-moduulin kanssa. Loin uudet pit- ja Checkstyleraportit ja linkkasin ne readme.md:stä, nyt 4.deadline kunnossa.
