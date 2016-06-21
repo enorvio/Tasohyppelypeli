@@ -31,13 +31,19 @@ public class PeliIkkuna extends JPanel implements ActionListener {
     public JLabel statuspaneeli;
     public BufferedImage kuva;
     private Pelaaja pelaaja;
-    public final static int INTERVAL = 50;
+    public final static int INTERVAL = 10;
     private Timer timer;
     private Logiikka logiikka;
     private Grafiikka grafiikka;
     private NappaimistonKuuntelija nappaimistonKuuntelija;
     private JFrame ikkuna;
 
+     /**
+     * Metodi on PeliIkkuna-luokan konstruktori.
+     *
+     * @param logiikka pelilogiikka
+     * @param JFrame ikkuna, johon PeliIkkuna on sijoitettu
+     */
     public PeliIkkuna(Logiikka logiikka, JFrame ikkuna) {
         super();
         this.ikkuna = ikkuna;
@@ -58,7 +64,7 @@ public class PeliIkkuna extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
 
-        g.drawImage(grafiikka.haeKuva(100), 0, 0, null);
+        g.drawImage(grafiikka.haeKuva(100+this.logiikka.getKentanNumero()), 0, 0, null);
         Kentta nykyinenKentta = this.pelaaja.getKentta();
         for (int i = 0; i < nykyinenKentta.getKorkeus(); i++) {
             for (int j = 0; j < nykyinenKentta.getLeveys(); j++) {

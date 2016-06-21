@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fi.enorvio.tasohyppelypeli.logiikka;
 
 /**
@@ -19,6 +15,14 @@ public class Vihollinen extends Hahmo {
     private char[] suunnat;
     private int[] kaannospisteet;
 
+    /**
+     * Metodi on Vihollinen-luokan konstruktori, jossa vihollinen ei vielä kuulu mihinkään tiettyyn kenttään.
+     *
+     * @param x vihollisen vasemman reunan x-koordinaatti
+     * @param y vihollisen yläreunan y-koordinaatti
+     * @param suunnat vihollisen liikkumissuunnat taulukkona ('u'= ylös, 'd' = alas, 'l' = vasen, 'r' = oikea)
+     * @param kaannospisteet viholisen käännöspisteiden x-tai y-koordinaatteja listana; vain toisella koordinaatilla on merkitystä, kertoo kohdan jossa vihollinen vaihtaa suuntaa
+     */
     public Vihollinen(int x, int y, char[] suunnat, int[] kaannospisteet) {
         super(x, y);
         this.reitinOsuus = 0;
@@ -26,6 +30,15 @@ public class Vihollinen extends Hahmo {
         this.kaannospisteet = kaannospisteet;
     }
 
+    /**
+     * Metodi on Vihollinen-luokan konstruktori, jossa vihollinen kuuluu johonkin tiettyyn kenttään.
+     *
+     * @param x vihollisen vasemman reunan x-koordinaatti
+     * @param y vihollisen yläreunan y-koordinaatti
+     * @param suunnat vihollisen liikkumissuunnat taulukkona ('u'= ylös, 'd' = alas, 'l' = vasen, 'r' = oikea)
+     * @param kaannospisteet viholisen käännöspisteiden x-tai y-koordinaatteja listana; vain toisella koordinaatilla on merkitystä, kertoo kohdan jossa vihollinen vaihtaa suuntaa
+     * @param kentta vihollisen kenttä
+     */
     public Vihollinen(int x, int y, char[] suunnat, int[] kaannospisteet, Kentta kentta) {
         super(x, y, kentta);
         this.reitinOsuus = 0;
@@ -50,6 +63,11 @@ public class Vihollinen extends Hahmo {
         return this.reitinOsuus;
     }
 
+    /**
+     * Metodi on Vihollisen toString-metodin apumetodi, joka tekee suuntien listasta merkkijonon.
+     *
+     * @return String suunnat merkkijonona
+     */
     public String suunnatMerkkijonona() {
         String mjono = "";
         for (char suunta : this.suunnat) {
@@ -58,6 +76,11 @@ public class Vihollinen extends Hahmo {
         return mjono;
     }
 
+    /**
+     * Metodi on Vihollisen toString-metodin apumetodi, joka tekee käännöspisteiden listasta merkkijonon.
+     *
+     * @return String käännöspisteet merkkijonona
+     */
     public String kaannospisteetMerkkijonona() {
         String mjono = "";
         for (int kaannospiste : this.kaannospisteet) {

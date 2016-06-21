@@ -28,6 +28,14 @@ public class NimenKysyjanKuuntelija implements ActionListener {
     private String nimi;
     private int pisteet;
     
+    /**
+     * Metodi on NimenKysyjanKuuntelija-luokan konstruktori. 
+     *
+     * @param ikkuna JFrame, jossa kysytään käyttäjän nimeä
+     * @param pisteet käyttäjän pelissä saamat pisteet
+     * @param nappi JButton jota painamalla käyttäjä ilmoittaa että nimi on kirjoitettu
+     * @param syotekentta JTextField johon käyttäjä syöttää nimensä
+     */  
     public NimenKysyjanKuuntelija(JFrame ikkuna, int pisteet, JButton nappi, JTextField syotekentta) {
         
         this.ikkuna = ikkuna;

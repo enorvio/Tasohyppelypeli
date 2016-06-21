@@ -28,7 +28,14 @@ public class ValikonKuuntelija implements ActionListener {
     private JButton lopeta;
     private JButton korkeimmatPisteet;
     
-    
+    /**
+     * Metodi on ValikonKuuntelija-luokan konstuktori. 
+     *
+     * @param valikko JFrame, joka sisältää kuunneltavan valikon
+     * @param uusiPeli JButton, jota klikkaamalla käyttäjä aloittaa uuden pelin
+     * @param korkeimmatPisteet JButton, jota klikkaamalla käyttäjä pääsee katsomaan tuloslistaa
+     * @param lopeta JButton, josta peli suljetaan
+     */
     
     public ValikonKuuntelija(JFrame valikko, JButton uusiPeli, JButton korkeimmatPisteet, JButton lopeta) {
         this.valikko = valikko;

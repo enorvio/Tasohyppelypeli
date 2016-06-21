@@ -25,6 +25,11 @@ public class Kentta {
     private int elamat;
     private HashMap<int[], int[]> teleportit;
 
+    /**
+     * Metodi on Kentta-luokan konstruktori.
+     *
+     * @param laatat kentän laatat taulukkona
+     */
     public Kentta(int[][] laatat) {
         this.leveys = 32;
         this.korkeus = 16;
@@ -36,6 +41,12 @@ public class Kentta {
         this.teleportit = new HashMap<int[], int[]>();
     }
 
+    /**
+     * Metodi on Kentta-luokan konstruktori, jolle annetaan myös Viholliset.
+     *
+     * @param laatat kentän laatat taulukkona
+     * @param viholliset viholliset valmiina olioina ArrayListissä
+     */
     public Kentta(int[][] laatat, ArrayList<Vihollinen> viholliset) {
         this.leveys = 32;
         this.korkeus = 16;

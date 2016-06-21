@@ -24,6 +24,10 @@ public class Pelaaja extends Hahmo {
     private int kentanNumero;
     private String[] kenttienTiedostonimet;
 
+    /**
+     * Metodi on Pelaaja-luokan konstruktori.
+     *
+     */    
     public Pelaaja(Kentta kentta) {
         super(1, 1, kentta);
         this.hyppy = 0;
@@ -33,7 +37,6 @@ public class Pelaaja extends Hahmo {
         this.elamat = 9;
         this.pisteet = 0;
         this.kentanNumero = 0;
-
     }
 
     public Kentta getKentta() {
@@ -70,12 +73,12 @@ public class Pelaaja extends Hahmo {
         return this.hyppy;
     }
 
-    public void kuole() {
+    @Override public void kuole() {
         super.kuole();
         this.elamat--;
     }
 
-    public void liiku() {
+    @Override public void liiku() {
         if (this.hyppy == 0) {
             super.setDy(1);
             if (super.getY() >= 478) {

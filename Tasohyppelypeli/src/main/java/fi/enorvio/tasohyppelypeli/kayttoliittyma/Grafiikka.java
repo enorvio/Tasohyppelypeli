@@ -22,6 +22,10 @@ public class Grafiikka {
     private HashMap<Integer, BufferedImage> kuvat;
     private Lukija lukija;
     
+    /**
+     * Metodi on Grafiikka-luokan konstruktori. 
+     *
+     */   
     public Grafiikka() {
         this.lukija = new Lukija();
         this.kuvat = new HashMap<Integer, BufferedImage>();

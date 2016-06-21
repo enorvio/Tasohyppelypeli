@@ -30,6 +30,11 @@ public class NimenKysyja implements Runnable {
     private int pisteet;
     private NimenKysyjanKuuntelija kuuntelija;
 
+    /**
+     * Metodi on NimenKysyja-luokan konstruktori. 
+     *
+     * @param pisteet käyttäjän pelissä saamat pisteet
+     */
     public NimenKysyja(int pisteet) {
         this.pisteet = pisteet;
         this.kuuntelija = null;

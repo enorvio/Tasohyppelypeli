@@ -22,6 +22,13 @@ public class Hahmo {
     private int dy;
     private Kentta kentta;
 
+     /**
+     * Metodi on Hahmo-luokan konstruktori ilman kenttää, jotta kenttä voitaisiin tarvittaessa lisätä jälkikäteen.
+     *
+     * @param x hahmon vasemman reunan x-koordinaatti 
+     * @param y hahmon yläreunan y-koordinaatti
+     */
+    
     public Hahmo(int x, int y) {
         this.x = x;
         this.y = y;
@@ -31,6 +38,14 @@ public class Hahmo {
         this.tormaaEsteisiin = false;
     }
 
+     /**
+     * Metodi on Hahmo-luokan konstruktori, jolle annetaan kenttä parametrina.
+     *
+     * @param x hahmon vasemman reunan x-koordinaatti 
+     * @param y hahmon yläreunan y-koordinaatti
+     * @param kentta kenttä, jossa hahmon olisi tarkoitus olla
+     */
+    
     public Hahmo(int x, int y, Kentta kentta) {
         this.x = x;
         this.y = y;

@@ -26,6 +26,12 @@ public class Logiikka {
     private Lukija lukija;
     private boolean jatkuu;
 
+    /**
+     * Metodi on Logiikka-luokan konstruktori.
+     * 
+     *@param kenttienTiedostonimet Niiden tiedostojen nimet (listana), joista pelin kentät ladataan.
+     */
+    
     public Logiikka(String[] kenttienTiedostonimet) {
         this.kentanNumero = 0;
         this.kenttienTiedostonimet = kenttienTiedostonimet;
@@ -38,6 +44,10 @@ public class Logiikka {
         return this.pelaaja;
     }
 
+    public int getKentanNumero() {
+        return this.kentanNumero;
+    }
+    
     /**
      * Metodi resetoi kentän pelitilanteen lataamalla kentän uudelleen
      * tiedostosta, asettaen pelaajan aloitusasemaan.

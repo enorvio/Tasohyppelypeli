@@ -25,6 +25,10 @@ public class NappaimistonKuuntelija implements KeyListener {
     private int pelaajanAnimaationTila;
     private Pelaaja pelaaja;
 
+    /**
+     * Metodi on NappaimistonKuuntelija-luokan konstruktori. 
+     *
+     */
     public NappaimistonKuuntelija(Pelaaja pelaaja) {
         this.pelaajanAnimaationTila = 1;
         this.pelaaja = pelaaja;

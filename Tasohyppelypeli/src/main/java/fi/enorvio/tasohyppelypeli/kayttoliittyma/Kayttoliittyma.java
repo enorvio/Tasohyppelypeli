@@ -34,10 +34,6 @@ public class Kayttoliittyma implements Runnable {
     private JButton lopeta;
     private JButton korkeimmatPisteet;
 
-    public Kayttoliittyma() {
-
-    }
-
     @Override
     public void run() {
         ikkuna = new JFrame("Valikko");
