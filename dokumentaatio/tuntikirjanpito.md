@@ -18,3 +18,5 @@ Päivä | Tunnit | Kuvaus
 14.6.2016 | 2h | Kirjoitin kaikkien luokkien ja julkisten metodien Javadocit ja tein 4 lisää testiä. 
 15.6.2016 | 1,5h | Kävin pajassa. Sain ohjeeksi ettei pitäisi tehdä enää uusia ominaisuuksia, teleportit voisi siirtää omaksi luokakseen ja teleportin lukeminen tiedostosta voisi olla oma metodinsa Lukijassa. Olisi kiva tietää miksi peli on niin hidas laitoksen koneella. Muutin pari juttua GUIssa ja tein 2 uutta testiä. 
 16.6.2016 | 1h | Tappelin pluginien ja Checkstylen Javadoc-moduulin kanssa. Loin uudet pit- ja Checkstyleraportit ja linkkasin ne readme.md:stä, nyt 4.deadline kunnossa.
+21.6.2016 | 0,5h | Kirjoitin käyttöohjeen ja rakennekuvauksen.
+23.6.2016 | 2,5h | Korjasin peliä hidastaneen bugin (rekursio PaintComponents-metodissa) ja laadin loput kentät. Animoin viholliset. Tein uudet pit- ja checkstyle-raportit, asensin pluginin jarrin tekemiseen mutta tällä hetkellä tiedosto ei toimi. Kaiken muun pitäisi olla kunnossa.
