@@ -27,6 +27,7 @@ public class Pelaaja extends Hahmo {
     /**
      * Metodi on Pelaaja-luokan konstruktori.
      *
+     * @param kentta pelaajan kenttä
      */    
     public Pelaaja(Kentta kentta) {
         super(1, 1, kentta);

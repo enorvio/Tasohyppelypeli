@@ -1,13 +1,7 @@
 
 package fi.enorvio.tasohyppelypeli.logiikka;
 
-/**
- *
- * @author tabby
- */
-import fi.enorvio.tasohyppelypeli.logiikka.Vihollinen;
 import java.util.*;
-import java.io.*;
 
 /**
  * Luokka tarjoaa toiminnallisuuden tasohyppelypelin tason luomiseen ja tiedon
@@ -15,10 +9,6 @@ import java.io.*;
  */
 public class Kentta {
 
-    private int leveys;
-    private int korkeus;
-    private int laatanLeveys;
-    private int laatanKorkeus;
     private int[][] laatat;
     private ArrayList<Vihollinen> viholliset;
     private int pisteet;
@@ -31,10 +21,6 @@ public class Kentta {
      * @param laatat kentän laatat taulukkona
      */
     public Kentta(int[][] laatat) {
-        this.leveys = 32;
-        this.korkeus = 16;
-        this.laatanLeveys = 16;
-        this.laatanKorkeus = 16;
         this.laatat = laatat;
         this.pisteet = 0;
         this.viholliset = new ArrayList<Vihollinen>();
@@ -48,10 +34,6 @@ public class Kentta {
      * @param viholliset viholliset valmiina olioina ArrayListissä
      */
     public Kentta(int[][] laatat, ArrayList<Vihollinen> viholliset) {
-        this.leveys = 32;
-        this.korkeus = 16;
-        this.laatanLeveys = 16;
-        this.laatanKorkeus = 16;
         this.laatat = laatat;
         this.pisteet = 0;
         this.viholliset = viholliset;
@@ -72,14 +54,6 @@ public class Kentta {
 
     public int getElamat() {
         return this.elamat;
-    }
-
-    public int getLeveys() {
-        return this.leveys;
-    }
-
-    public int getKorkeus() {
-        return this.korkeus;
     }
 
     public int getLaatta(int x, int y) {

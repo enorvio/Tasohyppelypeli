@@ -73,8 +73,8 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>          g.drawImage(grafiikka.haeKuva(100+<strong class="jxr_keyword">this</strong>.logiikka.getKentanNumero()), 0, 0, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>          <a href="../../../../fi/enorvio/tasohyppelypeli/logiikka/Kentta.html">Kentta</a> nykyinenKentta = <strong class="jxr_keyword">this</strong>.pelaaja.getKentta();
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; nykyinenKentta.getKorkeus(); i++) {
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>              <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; nykyinenKentta.getLeveys(); j++) {
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 16; i++) {
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; 32; j++) {
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>                  g.drawImage(grafiikka.haeKuva(nykyinenKentta.getLaatta(j, i)), j*32, i*32, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>              }
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  

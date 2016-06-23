@@ -65,8 +65,8 @@ public class PeliIkkuna extends JPanel implements ActionListener {
 
         g.drawImage(grafiikka.haeKuva(100+this.logiikka.getKentanNumero()), 0, 0, null);
         Kentta nykyinenKentta = this.pelaaja.getKentta();
-        for (int i = 0; i < nykyinenKentta.getKorkeus(); i++) {
-            for (int j = 0; j < nykyinenKentta.getLeveys(); j++) {
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 32; j++) {
                 g.drawImage(grafiikka.haeKuva(nykyinenKentta.getLaatta(j, i)), j*32, i*32, null);
             }
 
