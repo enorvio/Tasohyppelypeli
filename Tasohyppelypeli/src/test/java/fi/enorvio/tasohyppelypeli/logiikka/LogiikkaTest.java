@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class LogiikkaTest {
     
-    String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
+    String[] kentanNimet = {"src/main/resources/kentta4.txt"};
     Logiikka testiLogiikka = new Logiikka(kentanNimet);
     
     public LogiikkaTest() {

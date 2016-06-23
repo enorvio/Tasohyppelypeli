@@ -49,7 +49,6 @@ public class PeliIkkuna extends JPanel implements ActionListener {
         this.ikkuna = ikkuna;
         this.kuva = new BufferedImage(1024, 512, BufferedImage.TYPE_INT_RGB);
         this.grafiikka = new Grafiikka();
-        String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
         this.logiikka = logiikka;
         this.pelaaja = this.logiikka.getPelaaja();
         this.statuspaneeli = new JLabel("Lives: " + this.pelaaja.getElamat() + "Points: " + this.pelaaja.getPisteet());
@@ -77,9 +76,12 @@ public class PeliIkkuna extends JPanel implements ActionListener {
         g.setColor(Color.blue);
         
         for (Vihollinen vihollinen : this.pelaaja.getKentta().getViholliset()) {
-            g.fillRect(vihollinen.getX(), vihollinen.getY(), 32, 32);
+            if (vihollinen.getSuunnat()[vihollinen.getReitinOsuus()]=='r') {
+                g.drawImage(grafiikka.haeKuva(95), vihollinen.getX(), vihollinen.getY(), null);
+            } else {
+                g.drawImage(grafiikka.haeKuva(94), vihollinen.getX(), vihollinen.getY(), null);
+            }           
         }
-        repaint();
     }
 
     
@@ -90,6 +92,7 @@ public class PeliIkkuna extends JPanel implements ActionListener {
             this.timer.stop();
             this.logiikka.paivita();
             this.timer.start();
+            repaint();
             this.statuspaneeli.setText("Lives: " + (this.pelaaja.getElamat() + this.pelaaja.getKentta().getElamat()) + " Points: " + (this.pelaaja.getPisteet() + this.pelaaja.getKentta().getPisteet()));
         } else {
             this.timer.stop();

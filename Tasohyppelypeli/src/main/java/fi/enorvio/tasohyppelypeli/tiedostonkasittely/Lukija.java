@@ -138,7 +138,6 @@ public class Lukija {
             this.tiedostonLukija = new Scanner(pistetaulu);
             while (this.tiedostonLukija.hasNextLine()) {
                 String rivi = this.tiedostonLukija.nextLine();
-                System.out.println(rivi);
                 pisteet.add(rivi);
             }
         } catch (Exception e) {
@@ -176,7 +175,6 @@ public class Lukija {
         int pistesija = -1;
         for (int i = 0; i < nykyisetPisteet.size(); i++) {
             String[] osat = nykyisetPisteet.get(i).split(":");
-            System.out.println(osat[1]);
             if (pisteet > Integer.parseInt(osat[1])) {
                 pistesija = i;
                 break;

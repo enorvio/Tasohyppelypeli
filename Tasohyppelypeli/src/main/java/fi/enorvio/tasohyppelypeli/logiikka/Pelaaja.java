@@ -97,9 +97,7 @@ public class Pelaaja extends Hahmo {
         super.getKentta().poistaPiste(nykyinenX, nykyinenY);
         if (super.getKentta().pikseliKuuluuTeleporttiin(nykyinenX, nykyinenY)) {
             int[] alku = {nykyinenX / 32, nykyinenY / 32};
-            System.out.println(alku[0] + ", " + alku[1]);
             int[] loppu = super.getKentta().getTeleportinToinenPaa(alku);
-            System.out.println(loppu);
             if (loppu != null) {
                 this.setX((loppu[0] + 1) * 32);
                 this.setY((loppu[1]) * 32);

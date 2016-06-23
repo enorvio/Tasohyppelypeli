@@ -30,25 +30,29 @@
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">private</strong> HashMap&lt;Integer, BufferedImage&gt; kuvat;
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../fi/enorvio/tasohyppelypeli/tiedostonkasittely/Lukija.html">Lukija</a> lukija;
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>      
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../fi/enorvio/tasohyppelypeli/kayttoliittyma/Grafiikka.html">Grafiikka</a>() {
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>          <strong class="jxr_keyword">this</strong>.lukija = <strong class="jxr_keyword">new</strong> <a href="../../../../fi/enorvio/tasohyppelypeli/tiedostonkasittely/Lukija.html">Lukija</a>();
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">this</strong>.kuvat = <strong class="jxr_keyword">new</strong> HashMap&lt;Integer, BufferedImage&gt;();
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 110; i++) {
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>              String tiedostonimi = <span class="jxr_string">"src/main/resources/"</span> + i + <span class="jxr_string">".png"</span>;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>              <strong class="jxr_keyword">this</strong>.kuvat.put(i, <strong class="jxr_keyword">this</strong>.lukija.lataaKuva(tiedostonimi));            
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>          }
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>      }
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>      
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     * Metodi palauttaa kuvan sen numerosarjan perusteella.</em>
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     * @param kuvanNumero kuvaa vastaava tunnusnumero</em>
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     * @return numeroa vastaava BufferedImage-olio</em>
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">     */</em>     
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <strong class="jxr_keyword">public</strong> BufferedImage haeKuva(<strong class="jxr_keyword">int</strong> kuvanNumero) {
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.kuvat.get(kuvanNumero);
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>      }
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  }
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * Metodi on Grafiikka-luokan konstruktori. </em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     */</em>   
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../fi/enorvio/tasohyppelypeli/kayttoliittyma/Grafiikka.html">Grafiikka</a>() {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <strong class="jxr_keyword">this</strong>.lukija = <strong class="jxr_keyword">new</strong> <a href="../../../../fi/enorvio/tasohyppelypeli/tiedostonkasittely/Lukija.html">Lukija</a>();
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">this</strong>.kuvat = <strong class="jxr_keyword">new</strong> HashMap&lt;Integer, BufferedImage&gt;();
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 110; i++) {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>              String tiedostonimi = <span class="jxr_string">"src/main/resources/"</span> + i + <span class="jxr_string">".png"</span>;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>              <strong class="jxr_keyword">this</strong>.kuvat.put(i, <strong class="jxr_keyword">this</strong>.lukija.lataaKuva(tiedostonimi));            
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          }
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      }
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">     * Metodi palauttaa kuvan sen numerosarjan perusteella.</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * @param kuvanNumero kuvaa vastaava tunnusnumero</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     * @return numeroa vastaava BufferedImage-olio</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     */</em>     
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <strong class="jxr_keyword">public</strong> BufferedImage haeKuva(<strong class="jxr_keyword">int</strong> kuvanNumero) {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.kuvat.get(kuvanNumero);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      }
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016. All rights reserved.</div>

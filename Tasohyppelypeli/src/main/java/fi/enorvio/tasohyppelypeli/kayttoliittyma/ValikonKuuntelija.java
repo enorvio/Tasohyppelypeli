@@ -49,7 +49,7 @@ public class ValikonKuuntelija implements ActionListener {
 
         try {
             if (ae.getSource() == uusiPeli) {
-                String[] kentanNimet = {"src/main/resources/esimerkkiTaso2.txt", "src/main/resources/esimerkkiTaso.txt"};
+                String[] kentanNimet = {"src/main/resources/kentta0.txt", "src/main/resources/kentta1.txt", "src/main/resources/kentta2.txt", "src/main/resources/kentta3.txt", "src/main/resources/kentta4.txt"};
                 Logiikka logiikka = new Logiikka(kentanNimet);                
                 System.out.println("uusi peli");
                 JFrame ikkuna = new JFrame("Peli");
