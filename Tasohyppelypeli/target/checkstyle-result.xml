@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\Grafiikka.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\Kayttoliittyma.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\NappaimistonKuuntelija.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\NimenKysyja.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\NimenKysyjanKuuntelija.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\PeliIkkuna.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\kayttoliittyma\ValikonKuuntelija.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\logiikka\Hahmo.java">
+<error line="63" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="67" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="71" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\logiikka\Kentta.java">
+<error line="59" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="63" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\logiikka\Logiikka.java">
+<error line="117" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\logiikka\Pelaaja.java">
+<error line="47" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="67" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\logiikka\Vihollinen.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\Peli.java">
+</file>
+<file name="C:\Users\tabby\Documents\NetBeansProjects\Tasohyppelypeli\Tasohyppelypeli\src\main\java\fi\enorvio\tasohyppelypeli\tiedostonkasittely\Lukija.java">
+</file>
+</checkstyle>
