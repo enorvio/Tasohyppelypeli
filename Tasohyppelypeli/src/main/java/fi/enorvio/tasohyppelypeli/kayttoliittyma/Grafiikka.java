@@ -27,10 +27,12 @@ public class Grafiikka {
      *
      */   
     public Grafiikka() {
+        String kayttajanHakemisto = System.getProperties().getProperty("user.dir");
+        String paikallinenPolku = kayttajanHakemisto + "/files/";
         this.lukija = new Lukija();
         this.kuvat = new HashMap<Integer, BufferedImage>();
         for (int i = 0; i < 110; i++) {
-            String tiedostonimi = "src/main/resources/" + i + ".png";
+            String tiedostonimi = paikallinenPolku + i + ".png";
             this.kuvat.put(i, this.lukija.lataaKuva(tiedostonimi));            
         }
     }

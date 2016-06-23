@@ -132,9 +132,11 @@ public class Lukija {
      * @return Pistetilastot merkkijonoina ArrayListissä
      */    
     public ArrayList<String> lataaPisteet() {
+        String kayttajanHakemisto = System.getProperties().getProperty("user.dir");
+        String paikallinenPolku = kayttajanHakemisto + "/files/highscore.txt";
         ArrayList<String> pisteet = new ArrayList<String>();
         try {
-            File pistetaulu = new File("src/main/resources/highscore.txt");
+            File pistetaulu = new File(paikallinenPolku);
             this.tiedostonLukija = new Scanner(pistetaulu);
             while (this.tiedostonLukija.hasNextLine()) {
                 String rivi = this.tiedostonLukija.nextLine();
@@ -152,8 +154,10 @@ public class Lukija {
      * @param pisteet Pistetilastot merkkijonoina ArrayListissä
      */ 
     public void kirjoitaPisteet(ArrayList<String> pisteet) {
+        String kayttajanHakemisto = System.getProperties().getProperty("user.dir");
+        String paikallinenPolku = kayttajanHakemisto + "/files/highscore.txt";
         try {
-            FileWriter kirjoittaja = new FileWriter("src/main/resources/highscore.txt");
+            FileWriter kirjoittaja = new FileWriter(paikallinenPolku);
             for (String piste : pisteet) {
                 kirjoittaja.write(piste + "\n");
             }

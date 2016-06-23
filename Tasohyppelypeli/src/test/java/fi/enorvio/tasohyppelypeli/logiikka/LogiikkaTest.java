@@ -14,7 +14,9 @@ import static org.junit.Assert.*;
  */
 public class LogiikkaTest {
     
-    String[] kentanNimet = {"src/main/resources/kentta4.txt"};
+    String kayttajanHakemisto = System.getProperties().getProperty("user.dir");
+    String paikallinenPolku = kayttajanHakemisto + "/files/kentta4.txt";
+    String[] kentanNimet = {paikallinenPolku};
     Logiikka testiLogiikka = new Logiikka(kentanNimet);
     
     public LogiikkaTest() {

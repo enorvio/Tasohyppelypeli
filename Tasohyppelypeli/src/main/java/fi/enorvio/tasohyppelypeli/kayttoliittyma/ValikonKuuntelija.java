@@ -49,9 +49,13 @@ public class ValikonKuuntelija implements ActionListener {
 
         try {
             if (ae.getSource() == uusiPeli) {
-                String[] kentanNimet = {"src/main/resources/kentta0.txt", "src/main/resources/kentta1.txt", "src/main/resources/kentta2.txt", "src/main/resources/kentta3.txt", "src/main/resources/kentta4.txt"};
+                String kayttajanHakemisto = System.getProperties().getProperty("user.dir");
+                String paikallinenPolku = kayttajanHakemisto + "/files/";
+                String[] kentanNimet = new String[5];
+                for (int i = 0; i < 5; i++) {
+                    kentanNimet[i] = paikallinenPolku + "kentta" + i + ".txt";
+                }              
                 Logiikka logiikka = new Logiikka(kentanNimet);                
-                System.out.println("uusi peli");
                 JFrame ikkuna = new JFrame("Peli");
                 GridLayout asettelija = new GridLayout(2, 1);
                 ikkuna.setLayout(asettelija);
